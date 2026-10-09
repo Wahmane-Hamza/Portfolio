@@ -23,69 +23,76 @@ export const portfolioData = {
   ],
   adventures: [
     {
-      id: "high-atlas",
-      title: "The High Atlas Mountain Traverse",
-      route: "Marrakech ➔ Tizi n'Tichka Pass ➔ Ouarzazate",
-      distance: "210 km • 2,260m Summit Elevation",
-      type: "High-Altitude Bikepacking",
-      season: "Spring Expedition",
-      story: "A grueling multi-day solo ascent through the spine of Morocco. Battling thin mountain air, fierce headwinds, and hair-raising switchbacks with a fully loaded touring bike. The descent through red clay canyons rewarded every pedal stroke.",
+      id: "toubkal-summit",
+      title: "Climbing Mount Toubkal Summit (4,167 m)",
+      route: "High Atlas • Toubkal National Park, Morocco",
+      distance: "4,167 m Summit Elevation • Alpine Ascent",
+      type: "High-Altitude Peak Climb",
+      season: "Alpine Expedition",
+      image: "./trips/toubkal_summit.jpg",
+      story: "Reaching the highest peak in North Africa. Ascending through steep boulder fields and snowy couloirs to stand on the rocky summit of Jbel Toubkal.",
       highlights: [
-        "Tizi n'Tichka 2,260m mountain pass",
-        "Steep gravel switchbacks",
-        "Wild bivouac under starry Atlas skies",
-        "100% self-supported climb"
+        "North Africa's highest summit (4,167m)",
+        "Dramatic snowy Atlas mountain faces",
+        "Rocky ridge scramble and thin alpine air",
+        "Sunrise over the High Atlas ranges"
       ],
-      gear: "Gravel Touring Rig • Frame Panniers • Bivvy Shelter",
+      gear: "Alpine Pack • Trekking Poles • Mountain Gear",
       instagramUrl: "https://www.instagram.com/wahmane.hamza/"
     },
     {
-      id: "atlantic-coast",
-      title: "Atlantic Trade Wind Century",
-      route: "Essaouira ➔ Imsouane Sea Cliffs ➔ Taghazout",
-      distance: "175 km • Ocean Breeze Endurance",
-      type: "Coastal Touring",
-      season: "Summer Expedition",
-      story: "Tracing dramatic Atlantic cliff lines, salt-spray coastal highways, and golden sand dunes. Fighting relentless ocean trade winds during the day and falling asleep to crashing surf at remote coves.",
+      id: "cycling-167km",
+      title: "167 km Cycling Tour in 2 Days",
+      route: "Atlas Foothills & Mountain Passes",
+      distance: "167 km in 2 Days • Endurance Tour",
+      type: "Bikepacking Endurance",
+      season: "Multi-Day Ride",
+      image: "./trips/cycling_167km.jpg",
+      story: "Pushing the limits on two wheels: 167 kilometers covered in just two days across challenging Moroccan topography, gravel roads, and mountain passes.",
       highlights: [
-        "Sweeping ocean cliff lookouts",
-        "Argan forest backroads",
-        "Atlantic trade wind endurance",
-        "Fresh coastal provisions & sunset pacelines"
+        "167 km crushed in 48 hours",
+        "Saddle endurance and pedal rhythm",
+        "Mountain road talisman & route markers",
+        "Self-supported bikepacking pace"
       ],
-      gear: "Aero Frame Pack • Salinity Chain Care • Bivy"
+      gear: "Touring Bike • Frame Packs • Nutrition & Hydration",
+      instagramUrl: "https://www.instagram.com/wahmane.hamza/"
     },
     {
-      id: "southern-oases",
-      title: "Southern Oases & Ancient Kasbahs",
-      route: "Draa Valley ➔ Zagora Frontier",
-      distance: "240 km • Gravel & Desert",
-      type: "Desert Exploration",
-      season: "Autumn Expedition",
-      story: "Riding where tarmac surrenders to ancient gravel caravan trails, surrounded by thousands of date palms and thousand-year-old earthen kasbahs. A test of hydration, navigation by instinct, and inner peace.",
+      id: "oukaimden-mount",
+      title: "Climbing Mount Oukaïmeden (3,200 m)",
+      route: "Oukaïmeden Plateau & Peak, High Atlas",
+      distance: "3,200 m Summit • Above the Clouds",
+      type: "Alpine Ridge Climb",
+      season: "Mountain Expedition",
+      image: "./trips/oukaimden_mount.jpg",
+      story: "Climbing high above the valley floor to the rocky summit ridges of Oukaïmeden. Resting on the mountain rocks suspended directly above an ocean of clouds.",
       highlights: [
-        "Historic adobe kasbah fortresses",
-        "Endless lush date palm canopies",
-        "Remote gravel desert tracks",
-        "Sweet mint tea with nomadic locals"
+        "Lying on mountain rocks above the clouds",
+        "Snow-dusted High Atlas peaks",
+        "3,200m altitude vantage point",
+        "Pure silence and mountain wind"
       ],
-      gear: "Wide Tubeless Tires • High-Volume Hydration"
+      gear: "Cold-Weather Shell • Lightweight Trek Pack",
+      instagramUrl: "https://www.instagram.com/wahmane.hamza/"
     },
     {
-      id: "dawn-centuries",
-      title: "Dawn Centuries & Foothill Escapes",
-      route: "Marrakech Plains & Atlas Foothills",
-      distance: "100+ km Weekend Rides",
-      type: "Fast Endurance",
-      season: "Year-Round",
-      story: "Escaping the city before first light. Slicing through cool morning air across olive groves with the snowy Atlas peaks towering on the horizon. Pure cadence and rhythm that clears the mind for complex coding puzzles.",
+      id: "lalla-takerkoust",
+      title: "Trip in Lalla Takerkoust & Barrage Marrakech",
+      route: "Lalla Takerkoust Reservoir & Trails, Marrakech",
+      distance: "Lake Circuit & Countryside Trails",
+      type: "Trekking & Exploration",
+      season: "Trail Expedition",
+      image: "./trips/lalla_takerkoust.jpg",
+      story: "Exploring the dirt roads, pine trees, and rolling plains surrounding the Lalla Takerkoust dam with backpacks under the blue Marrakech sky.",
       highlights: [
-        "100km+ single-session centuries",
-        "Snowy Atlas mountain backdrops",
-        "Steady pedal cadence training",
-        "Pre-code mental clarity"
+        "Dirt tracks along Barrage Lalla Takerkoust",
+        "Countryside backpack exploration",
+        "Marrakech desert plateau scenery",
+        "Quiet trail camaraderie"
       ],
-      gear: "Lightweight Cockpit • Carbon Wheels"
+      gear: "Hiking Pack • Trail Footwear • Sun Protection",
+      instagramUrl: "https://www.instagram.com/wahmane.hamza/"
     }
   ],
   engineering: {

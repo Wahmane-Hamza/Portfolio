@@ -7,26 +7,26 @@ export default function PageCycling({ onSwitchTab, onOpenContact }) {
 
   const polaroids = [
     {
-      img: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
-      caption: "Tizi n'Tichka Pass (2,260m) • High Atlas Switchbacks",
+      img: "./trips/toubkal_summit.jpg",
+      caption: "Climb Toubkal Summit (4,167 m) • Peak of North Africa",
       rotate: "-rotate-2",
       clip: "top-left"
     },
     {
-      img: "https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?auto=format&fit=crop&w=600&q=80",
-      caption: "Atlantic Coast Headwinds • Essaouira to Taghazout",
+      img: "./trips/cycling_167km.jpg",
+      caption: "Cycled 167 km in two days • High Atlas road",
       rotate: "rotate-2",
       clip: "top-right"
     },
     {
-      img: "https://images.unsplash.com/photo-1489749798305-4fea3ae63d43?auto=format&fit=crop&w=600&q=80",
-      caption: "Draa Valley Gravel Trail • Ancient Adobe Kasbahs",
+      img: "./trips/oukaimden_mount.jpg",
+      caption: "Climb Oukaïmeden Mount (3,200 m) • Above the clouds",
       rotate: "-rotate-1",
       clip: "top-left"
     },
     {
-      img: "https://images.unsplash.com/photo-1511994298241-608e28f14fde?auto=format&fit=crop&w=600&q=80",
-      caption: "Loaded Touring Rig • Atlas Bivouac Setup",
+      img: "./trips/lalla_takerkoust.jpg",
+      caption: "Trip in Lalla Takerkoust, Barrage Marrakech",
       rotate: "rotate-3",
       clip: "top-right"
     }
@@ -81,7 +81,7 @@ export default function PageCycling({ onSwitchTab, onOpenContact }) {
               <div className={`absolute -top-3 ${p.clip === 'top-left' ? 'left-4' : 'right-4'} z-10 w-7 h-4 bg-[#1f1c19] rounded-t-sm border border-[#fffdf8] shadow-md`} />
 
               {/* Photo */}
-              <div className="overflow-hidden bg-[#2b1c11] aspect-[4/3] rounded-[1px]">
+              <div className="overflow-hidden bg-[#2b1c11] aspect-[4/5] rounded-[1px]">
                 <img
                   src={p.img}
                   alt={p.caption}
@@ -109,22 +109,36 @@ export default function PageCycling({ onSwitchTab, onOpenContact }) {
         </div>
 
         <p>
-          "Subject operates independently on long-distance cycling routes across Morocco. Documented solo expeditions include conquering the <strong>High Atlas backbone via Tizi n'Tichka (2,260 meters elevation)</strong>, pushing through intense Atlantic ocean headwinds from Essaouira to Taghazout, and navigating remote gravel caravan tracks in the Draa Valley."
+          "Subject operates independently on mountain ascents and long-distance cycling routes across Morocco. Documented expeditions include reaching the <strong>Mount Toubkal Summit (4,167 meters elevation — highest peak in North Africa)</strong>, crushing <strong>167 km cycling tours in two days</strong> across the Atlas mountain roads, climbing <strong>Mount Oukaïmeden (3,200 meters elevation)</strong> to rest above the sea of clouds, and wilderness trekking around <strong>Lalla Takerkoust & Barrage Marrakech</strong>."
         </p>
 
         <p>
-          "Bicycle setup consists of a gravel touring rig with self-supported frame packs, bivvy shelter, tools, and hydration reserves. Total documented saddle time exceeds <strong>5,000 kilometers</strong>."
+          "Setup consists of self-supported bikepacking gear, alpine trekking equipment, cold-weather layers, and continuous physical endurance. Documented saddle and trail experience reflects pure discipline and perseverance."
         </p>
       </div>
 
       {/* 4 Route Briefs */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {adventures.map((adv) => (
-          <div key={adv.id} className="p-4 bg-[#fbf5e6] border border-[#2b1c11]/30 rounded">
-            <div className="text-[10px] text-[#72191a] font-bold uppercase">{adv.type} • {adv.season}</div>
-            <h4 className="font-bold text-sm text-[#1a140e] mt-0.5">{adv.title}</h4>
-            <div className="text-xs text-[#5a4430] italic mt-0.5">📍 {adv.route}</div>
-            <p className="text-xs text-[#2b1c11] mt-2 leading-relaxed">{adv.story}</p>
+          <div key={adv.id} className="p-4 bg-[#fbf5e6] border border-[#2b1c11]/30 rounded space-y-2">
+            <div className="flex items-center justify-between">
+              <span className="text-[10px] text-[#72191a] font-bold uppercase">{adv.type} • {adv.season}</span>
+              <span className="text-[10px] font-bold text-[#8a1718] bg-[#eadbb5]/80 px-2 py-0.5 rounded border border-[#2b1c11]/20">
+                {adv.distance}
+              </span>
+            </div>
+            <h4 className="font-bold text-sm text-[#1a140e]">{adv.title}</h4>
+            <div className="text-xs text-[#5a4430] italic">📍 {adv.route}</div>
+            <p className="text-xs text-[#2b1c11] leading-relaxed">{adv.story}</p>
+            {adv.highlights && (
+              <div className="flex flex-wrap gap-1.5 pt-1">
+                {adv.highlights.map((h, i) => (
+                  <span key={i} className="text-[9px] px-1.5 py-0.5 bg-[#fffdf8] border border-[#2b1c11]/20 rounded text-[#2b1c11]/80">
+                    • {h}
+                  </span>
+                ))}
+              </div>
+            )}
           </div>
         ))}
       </div>
