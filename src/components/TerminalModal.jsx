@@ -45,6 +45,7 @@ export default function TerminalModal({ isOpen, onClose }) {
   skills      - List core technical competencies
   projects    - Summary of top highlighted repositories
   1337        - Information on 1337 Coding School / 42
+  contact     - View email and direct contact channels
   socials     - View LinkedIn, GitHub, Twitter links
   github      - Open Hamza's GitHub profile
   linkedin    - Open Hamza's LinkedIn profile
@@ -104,9 +105,12 @@ No teachers, no courses, 100% project-driven problem solving and rigorous peer r
         break;
 
       case 'socials':
+      case 'contact':
+      case 'email':
         newHistory.push({
           type: 'output',
-          text: `GitHub:   ${portfolioData.socials.github}
+          text: `Email:    ${portfolioData.personal.email}
+GitHub:   ${portfolioData.socials.github}
 LinkedIn: ${portfolioData.socials.linkedin}
 Twitter:  ${portfolioData.socials.twitter}`
         });
@@ -249,7 +253,7 @@ Twitter:  ${portfolioData.socials.twitter}`
         {/* Quick Command Suggestions Footer */}
         <div className="bg-dark-900 px-4 py-2 border-t border-white/10 flex flex-wrap items-center gap-1.5 text-xs font-mono text-slate-400">
           <span className="text-slate-500 text-[11px]">Quick:</span>
-          {['help', 'about', 'skills', 'projects', '1337', 'github', 'linkedin', 'clear'].map((cmd) => (
+          {['help', 'about', 'skills', 'projects', '1337', 'contact', 'github', 'linkedin', 'clear'].map((cmd) => (
             <button
               key={cmd}
               onClick={() => handleCommand(cmd)}

@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { portfolioData } from '../data/portfolioData';
-import { Mail, Linkedin, Github, Send, Copy, Check, Twitter, Instagram, ArrowUpRight } from 'lucide-react';
+import { Mail, Linkedin, Github, Send, Copy, Check, Twitter, Instagram, ArrowUpRight, Loader2 } from 'lucide-react';
 
 export default function Contact() {
   const { personal, socials } = portfolioData;
   const [copied, setCopied] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-  const [sentStatus, setSentStatus] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [statusMessage, setStatusMessage] = useState(null);
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(personal.email);
@@ -14,12 +15,49 @@ export default function Contact() {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const mailtoLink = `mailto:${personal.email}?subject=Portfolio Contact from ${encodeURIComponent(formData.name)}&body=${encodeURIComponent(formData.message + '\n\nFrom: ' + formData.name + ' (' + formData.email + ')')}`;
-    window.location.href = mailtoLink;
-    setSentStatus(true);
-    setTimeout(() => setSentStatus(false), 5000);
+    setIsSubmitting(true);
+    setStatusMessage(null);
+
+    try {
+      const response = await fetch(`https://formsubmit.co/ajax/${personal.email}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          _subject: `New Portfolio Message from ${formData.name}`,
+          _template: 'table',
+        }),
+      });
+
+      const data = await response.json();
+      if (response.ok && data.success !== 'false') {
+        setStatusMessage({
+          type: 'success',
+          text: 'Thank you! Your message has been sent directly to Hamza.',
+        });
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        throw new Error('API submission failed');
+      }
+    } catch (err) {
+      // Fallback to mailto if network error or adblocker blocks AJAX
+      const mailtoLink = `mailto:${personal.email}?subject=Portfolio Contact from ${encodeURIComponent(formData.name)}&body=${encodeURIComponent(formData.message + '\n\nFrom: ' + formData.name + ' (' + formData.email + ')')}`;
+      window.location.href = mailtoLink;
+      setStatusMessage({
+        type: 'info',
+        text: 'Opening your email client to send the message...',
+      });
+    } finally {
+      setIsSubmitting(false);
+      setTimeout(() => setStatusMessage(null), 7000);
+    }
   };
 
   return (
@@ -180,15 +218,34 @@ export default function Contact() {
 
               <button
                 type="submit"
-                className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-semibold text-dark-900 bg-gradient-to-r from-cyan-400 to-emerald-400 hover:from-cyan-300 hover:to-emerald-300 transition-all shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/30 cursor-pointer"
+                disabled={isSubmitting}
+                className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-semibold text-dark-900 bg-gradient-to-r from-cyan-400 to-emerald-400 hover:from-cyan-300 hover:to-emerald-300 disabled:opacity-60 disabled:cursor-not-allowed transition-all shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/30 cursor-pointer"
               >
-                <Send className="w-4 h-4" />
-                <span>Send Message</span>
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    <span>Sending message...</span>
+                  </>
+                ) : (
+                  <>
+                    <Send className="w-4 h-4" />
+                    <span>Send Message</span>
+                  </>
+                )}
               </button>
 
-              {sentStatus && (
-                <div className="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-mono text-center">
-                  Email client opened with your message ready to send!
+              {statusMessage && (
+                <div className={`p-3.5 rounded-xl text-xs font-mono text-center flex items-center justify-center gap-2 ${
+                  statusMessage.type === 'success'
+                    ? 'bg-emerald-500/10 border border-emerald-500/20 text-emerald-400'
+                    : 'bg-cyan-500/10 border border-cyan-500/20 text-cyan-300'
+                }`}>
+                  {statusMessage.type === 'success' ? (
+                    <Check className="w-4 h-4 text-emerald-400 shrink-0" />
+                  ) : (
+                    <Mail className="w-4 h-4 text-cyan-400 shrink-0" />
+                  )}
+                  <span>{statusMessage.text}</span>
                 </div>
               )}
             </form>

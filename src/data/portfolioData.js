@@ -7,7 +7,7 @@ export const portfolioData = {
     location: "Morocco",
     status: "Open to opportunities",
     avatar: "https://avatars.githubusercontent.com/u/133402595?v=4",
-    email: "hamzawahmane.contact@gmail.com", // customizable
+    email: "hamza.wahm5@gmail.com",
   },
   socials: {
     github: "https://github.com/Wahmane-Hamza",
