@@ -92,11 +92,11 @@ Bio: Bridging high-performance C/C++ systems engineering with modern React & Nod
       case '1337':
         newHistory.push({
           type: 'output',
-          text: `  _ ____  _____ _____ 
- / |___ \|___ /|___  |
- | | __) | |_ \   / / 
- | |/ __/ ___) | / /  
- |_|_____|____/ /_/   
+          text: `  _ _____ _____ _____ 
+ / |___ /|___ /|___  |
+ | | |_ \\| |_ \\   / / 
+ | |___) |___) | / /  
+ |_|____/|____/ /_/   
 
 1337 is Morocco's premier peer-to-peer coding school (part of 42 Network).
 No teachers, no courses, 100% project-driven problem solving and rigorous peer reviews.`
