@@ -4,95 +4,129 @@
 
 @layer base {
   body {
-    background-color: #f5eed8;
+    background-color: #1b140e;
     color: #2b1c11;
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: 'Courier Prime', monospace;
     background-image: 
-      radial-gradient(ellipse at top, rgba(255, 255, 255, 0.6) 0%, transparent 60%),
-      radial-gradient(circle at bottom right, rgba(197, 155, 39, 0.08) 0%, transparent 50%),
-      radial-gradient(circle at 10% 20%, rgba(139, 38, 30, 0.03) 0%, transparent 30%);
+      radial-gradient(circle at 50% 30%, rgba(65, 45, 27, 0.4) 0%, rgba(20, 14, 9, 0.95) 100%),
+      repeating-linear-gradient(45deg, rgba(0, 0, 0, 0.05) 0px, rgba(0, 0, 0, 0.05) 2px, transparent 2px, transparent 8px);
+    background-attachment: fixed;
   }
 }
 
-/* Antique Scrollbar */
+/* Custom Scrollbar for case files */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
-
 ::-webkit-scrollbar-track {
-  background: #ecdcb9;
+  background: #251b14;
 }
-
 ::-webkit-scrollbar-thumb {
-  background: #a8844f;
+  background: #5a412c;
   border-radius: 4px;
-  border: 2px solid #ecdcb9;
 }
-
 ::-webkit-scrollbar-thumb:hover {
-  background: #7a5a2e;
+  background: #7a583c;
 }
 
-/* Parchment Card Styles */
-.parchment-sheet {
-  background: #fffcf4;
+/* Manila Folder Container */
+.manila-folder-container {
+  background: #ded0ab;
   background-image: 
-    radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.8) 0%, transparent 70%),
-    linear-gradient(180deg, #fffcf4 0%, #f9f0db 100%);
-  border: 1px solid rgba(170, 132, 60, 0.35);
+    radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.25) 0%, transparent 40%),
+    linear-gradient(135deg, #e4d7b5 0%, #d4c296 100%);
   box-shadow: 
-    0 8px 30px -4px rgba(78, 52, 23, 0.15),
-    0 2px 6px rgba(78, 52, 23, 0.08),
-    inset 0 0 35px rgba(214, 179, 108, 0.12);
+    0 25px 60px -15px rgba(0, 0, 0, 0.75),
+    0 10px 25px -5px rgba(0, 0, 0, 0.4),
+    inset 0 2px 4px rgba(255, 255, 255, 0.4),
+    inset 0 -3px 6px rgba(0, 0, 0, 0.25);
+  border: 1px solid #c2b083;
+}
+
+/* Case File Paper Sheet */
+.case-sheet {
+  background: #faf3de;
+  background-image: 
+    radial-gradient(circle at 50% 10%, rgba(255, 255, 255, 0.7) 0%, transparent 60%),
+    linear-gradient(180deg, #fbf5e4 0%, #f4e9cb 100%);
+  box-shadow: 
+    0 5px 20px rgba(45, 30, 15, 0.2),
+    0 1px 3px rgba(45, 30, 15, 0.15),
+    inset 0 0 40px rgba(190, 155, 90, 0.15);
+  border: 1px solid #cfbe95;
   position: relative;
 }
 
-.parchment-sheet::before {
-  content: '';
+/* Rubber Stamp: CONFIDENTIAL */
+.stamp-confidential {
+  color: #b82728;
+  border: 3.5px solid #b82728;
+  border-radius: 4px;
+  font-family: 'Special Elite', monospace;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  display: inline-block;
+  transform: rotate(-10deg);
+  opacity: 0.88;
+  mask-image: radial-gradient(circle, black 70%, rgba(0,0,0,0.6) 100%);
+  user-select: none;
+}
+
+/* Circular Seal Stamp */
+.stamp-seal {
+  width: 80px;
+  height: 80px;
+  border: 2.5px dashed #b82728;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #b82728;
+  font-family: 'Special Elite', monospace;
+  transform: rotate(14deg);
+  opacity: 0.82;
+  user-select: none;
+}
+
+/* Redacted Marker Bars */
+.redacted {
+  background-color: #1a1614;
+  color: transparent;
+  user-select: none;
+  display: inline-block;
+  border-radius: 2px;
+  padding: 0 4px;
+  height: 1.1em;
+  vertical-align: middle;
+}
+
+/* Polaroid Photo Card */
+.polaroid {
+  background: #fffdf8;
+  padding: 8px 8px 24px 8px;
+  box-shadow: 
+    0 8px 22px rgba(40, 25, 12, 0.3),
+    0 2px 6px rgba(40, 25, 12, 0.15);
+  border: 1px solid #e3d8be;
+  transition: transform 0.2s ease;
+}
+
+.polaroid:hover {
+  transform: scale(1.03) rotate(0deg) !important;
+  z-index: 20;
+}
+
+/* Paperclip representation */
+.paperclip {
+  width: 14px;
+  height: 48px;
+  border: 3px solid #8e959e;
+  border-radius: 12px;
+  box-shadow: 
+    1px 2px 4px rgba(0, 0, 0, 0.35),
+    inset 0 1px 1px rgba(255, 255, 255, 0.7);
   position: absolute;
-  inset: 5px;
-  border: 1px dashed rgba(184, 134, 11, 0.35);
-  pointer-events: none;
-  border-radius: inherit;
-}
-
-/* Torn / Deckle Edge Card */
-.deckle-edge {
-  box-shadow: 
-    0 12px 28px -6px rgba(58, 38, 17, 0.18),
-    0 2px 8px rgba(58, 38, 17, 0.1),
-    inset 0 0 45px rgba(184, 134, 11, 0.1);
-  border: 1px solid rgba(160, 120, 50, 0.4);
-}
-
-/* Wax Seal Badge */
-.wax-seal {
-  background: radial-gradient(circle at 35% 35%, #ba3128 0%, #871d17 65%, #590f0a 100%);
-  box-shadow: 
-    0 4px 12px rgba(89, 15, 10, 0.4),
-    inset 0 2px 3px rgba(255, 255, 255, 0.35),
-    inset 0 -2px 4px rgba(0, 0, 0, 0.4);
-  border: 2px solid #a3221a;
-}
-
-/* Postal Stamp Perforated Border Effect */
-.postage-stamp {
-  border: 2px dashed #997843;
-  background: #fbf5e6;
-  box-shadow: 0 4px 12px rgba(60, 40, 20, 0.08);
-}
-
-/* Ribbon Banner */
-.ribbon-banner {
-  background: linear-gradient(180deg, #ecd8af 0%, #dfc38f 100%);
-  border-top: 1px solid #f9edd4;
-  border-bottom: 2px solid #8e6c31;
-  box-shadow: 0 4px 12px rgba(60, 40, 20, 0.12);
-}
-
-/* Map Background Lines */
-.bg-map-pattern {
-  background-image: 
-    radial-gradient(circle at 20% 40%, rgba(184, 134, 11, 0.06) 0%, transparent 40%),
-    radial-gradient(circle at 80% 60%, rgba(139, 38, 30, 0.04) 0%, transparent 40%);
 }

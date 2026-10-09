@@ -8,34 +8,28 @@ export default {
   theme: {
     extend: {
       colors: {
-        parchment: {
-          50: '#fffdfa',
-          100: '#fdf8ee',
-          200: '#f6eed9',
-          300: '#ede0c2',
-          400: '#decba2',
-          500: '#cbb382',
+        manila: {
+          50: '#fffdf8',
+          100: '#faf2db',
+          200: '#f4e9cb',
+          300: '#eadbb5',
+          400: '#dec796',
+          500: '#cbb07a',
+          folder: '#e2cf9f',
+          tab: '#cbba88',
+          tabActive: '#f8f0dc',
         },
-        vintage: {
-          dark: '#1e140b',
-          ink: '#2b1c11',
-          espresso: '#382414',
-          sepia: '#5e432b',
-          leather: '#7c5737',
-          paper: '#f5edd6',
-          parchment: '#faecd1',
-          aged: '#e8dcbd',
-          brass: '#b8860b',
-          gold: '#c59b27',
-          wax: '#9e2a2b',
-          waxDark: '#72191a',
+        stamp: {
+          red: '#b82728',
+          redDark: '#8a1718',
+          ink: '#1d1a16',
+          blue: '#2d4d77',
         }
       },
       fontFamily: {
-        script: ['Great Vibes', 'cursive'],
-        cinzel: ['Cinzel', 'serif'],
-        serif: ['Cormorant Garamond', 'EB Garamond', 'Georgia', 'serif'],
-        typewriter: ['Courier Prime', 'monospace'],
+        typewriter: ['Special Elite', 'Courier Prime', 'monospace'],
+        handwriting: ['Caveat', 'cursive'],
+        mono: ['Courier Prime', 'monospace'],
         sans: ['Inter', 'system-ui', 'sans-serif'],
       },
       animation: {
