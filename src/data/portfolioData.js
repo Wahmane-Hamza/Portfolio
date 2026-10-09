@@ -95,6 +95,88 @@ export const portfolioData = {
       instagramUrl: "https://www.instagram.com/wahmane.hamza/"
     }
   ],
+  projects: [
+    {
+      id: "minishell",
+      code: "EXHIBIT 01: UNIX SHELL",
+      title: "Minishell Organization",
+      subtitle: "Full-Featured Unix Shell in C (42 School • Score 125/100)",
+      role: "Parsing Logic Owner (Lexer, Grammar AST, Redirections, Syntax Validation)",
+      team: "Hamza Wahmane (Parsing Logic) • Abdellah Nsila (Execution Logic)",
+      description: "A complete Unix shell mimicking /bin/bash built strictly in C without external libraries. Engineered with a modular dual-repository architecture separating input parsing and execution engine.",
+      features: [
+        "Lexical analysis, tokenization & Abstract Syntax Tree (AST) generation",
+        "Command & redirection arrangement (<, >, >>, << heredocs)",
+        "Logical operators (&&, ||) and nested subshells with parentheses priorities",
+        "Quote handling, escape sequence resolution & syntax error validation",
+        "Built-in commands (cd, echo, export, unset, env, exit, pwd) & signal handling",
+        "Official 42 School Score: 125/100 (Full Bonus Completed)"
+      ],
+      tags: ["C", "AST", "Lexer / Parser", "Unix Internals", "POSIX", "Signals"],
+      githubUrl: "https://github.com/Minishell13",
+      liveUrl: null,
+      badge: "Score: 125/100"
+    },
+    {
+      id: "webserv",
+      code: "EXHIBIT 02: HTTP SERVER ENGINE",
+      title: "Webserv — Hmida Srbay",
+      subtitle: "HTTP/1.0 High-Performance Non-Blocking Web Server in C++98",
+      role: "Core Developer (Architecture, Sockets & CGI Integration)",
+      team: "Hamza Wahmane • Abdellah Nsila • AKL001",
+      description: "An event-driven, non-blocking I/O web server built from scratch in strict C++98. Operates on a single-threaded multiplexing model (epoll/kqueue) serving hundreds of concurrent clients with minimal RAM overhead.",
+      features: [
+        "Event-driven non-blocking I/O multiplexing (epoll / fcntl O_NONBLOCK)",
+        "Zero-RAM static asset streaming in controlled chunks to avoid memory spikes",
+        "Nginx-style .conf lexer/parser, virtual hosting, and URI location resolver",
+        "Dynamic CGI execution engine (Python & PHP) with pipes and fork/execve",
+        "Multipart upload processing & native in-memory session/cookie persistence",
+        "Strict C++98 standard compliance (-Wall -Wextra -Werror, zero external libraries)"
+      ],
+      tags: ["C++98", "epoll Multiplexer", "Non-blocking Sockets", "HTTP/1.0", "CGI Engine", "Session Cookies"],
+      githubUrl: "https://github.com/Web-serv-42",
+      liveUrl: null,
+      badge: "C++98 / epoll"
+    },
+    {
+      id: "kouralink",
+      code: "EXHIBIT 03: COMMUNITY PLATFORM",
+      title: "KouraLink Organization",
+      subtitle: "Vibrant Football Community Hub & Tactical Match Platform",
+      role: "Full-Stack Web Architect",
+      team: "KouraLink Organization Team",
+      description: "A community-driven digital football platform bringing football enthusiasts together. Features dynamic match coordination, team creation, tournament competition, and interactive strategic whiteboard planning.",
+      features: [
+        "Interactive gameplay: organize matches, assemble teams & enter tournaments",
+        "Strategic team planning: visual whiteboard design tools for managers and captains",
+        "Global inclusive football community hub for players, coaches & fans",
+        "Modern cloud-native web application deployed and running live on Vercel"
+      ],
+      tags: ["React", "TypeScript", "Node.js", "Tailwind CSS", "Vercel", "Real-Time"],
+      githubUrl: "https://github.com/kouralink",
+      liveUrl: "https://kouralink.vercel.app",
+      badge: "Live App on Vercel"
+    },
+    {
+      id: "allobaba-webscrapy",
+      code: "EXHIBIT 04: AUTOMATION & SCRAPING",
+      title: "AlloBaba WebScrapy",
+      subtitle: "Enterprise Microservices Web Scraping & Data Extraction Suite",
+      role: "Full-Stack & Systems Developer",
+      team: "AlloBaba WebScrapy Organization",
+      description: "An automated distributed web scraping ecosystem featuring Python-powered microservices and cross-platform user interfaces for high-throughput commercial data harvesting.",
+      features: [
+        "Python microservice scrapers for AutoScout24, Pages Jaunes & B2B directories",
+        "Cross-platform Desktop Application built with Electron, React, Vite & TypeScript",
+        "Responsive Scrapy Web Client front-end for task configuration and monitoring",
+        "Robust streaming pipelines and structured commercial data extraction"
+      ],
+      tags: ["Python", "Electron", "React", "TypeScript", "Microservices", "Data Scraping"],
+      githubUrl: "https://github.com/Allobaba-WebScrapy",
+      liveUrl: null,
+      badge: "7 Repositories"
+    }
+  ],
   engineering: {
     overview: "Formed in the intensive, teacher-less environment of 1337 Coding School (42 Network), my engineering philosophy mirrors my cycling: self-reliance, endurance, and total ownership of every problem.",
     pillars: [
