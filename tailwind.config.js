@@ -8,21 +8,34 @@ export default {
   theme: {
     extend: {
       colors: {
-        dark: {
-          900: '#090d16',
-          800: '#0f172a',
-          700: '#1e293b',
-          600: '#334155',
+        parchment: {
+          50: '#fffdfa',
+          100: '#fdf8ee',
+          200: '#f6eed9',
+          300: '#ede0c2',
+          400: '#decba2',
+          500: '#cbb382',
         },
-        accent: {
-          cyan: '#06b6d4',
-          emerald: '#10b981',
-          violet: '#8b5cf6',
-          blue: '#3b82f6',
+        vintage: {
+          dark: '#1e140b',
+          ink: '#2b1c11',
+          espresso: '#382414',
+          sepia: '#5e432b',
+          leather: '#7c5737',
+          paper: '#f5edd6',
+          parchment: '#faecd1',
+          aged: '#e8dcbd',
+          brass: '#b8860b',
+          gold: '#c59b27',
+          wax: '#9e2a2b',
+          waxDark: '#72191a',
         }
       },
       fontFamily: {
-        mono: ['Fira Code', 'JetBrains Mono', 'ui-monospace', 'monospace'],
+        script: ['Great Vibes', 'cursive'],
+        cinzel: ['Cinzel', 'serif'],
+        serif: ['Cormorant Garamond', 'EB Garamond', 'Georgia', 'serif'],
+        typewriter: ['Courier Prime', 'monospace'],
         sans: ['Inter', 'system-ui', 'sans-serif'],
       },
       animation: {

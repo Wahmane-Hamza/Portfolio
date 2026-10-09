@@ -1,177 +1,106 @@
 export const portfolioData = {
   personal: {
     name: "Hamza Wahmane",
-    title: "Full-Stack Developer & Software Engineer",
-    subheading: "Student / Alumnus at 1337 Coding School (42 Network)",
-    bio: "I'm a passionate Software Engineer and Full-Stack Developer with a deep foundation in both low-level systems programming and modern web technologies. From architecting real-time web applications with React and Socket.io to optimizing concurrent algorithms and Unix systems in C/C++, I love solving complex technical challenges.",
-    location: "Morocco",
-    status: "Open to opportunities",
+    title: "Software Engineer & Long-Distance Cycling Explorer",
+    subheading: "1337 Coding School (42 Network) • Solo Bikepacker across Morocco",
+    bio: "Where algorithmic precision meets the grit of the open road. When I am not engineering concurrent C/C++ systems or crafting full-stack web applications, I am on my bike conquering mountain passes in the High Atlas, riding alongside Atlantic trade winds, and sleeping under the desert stars.",
+    location: "Marrakech & Casablanca, Morocco",
+    status: "Open for Opportunities & New Horizons",
     avatar: "https://avatars.githubusercontent.com/u/133402595?v=4",
     email: "hamza.wahm5@gmail.com",
   },
   socials: {
+    instagram: "https://www.instagram.com/wahmane.hamza/",
     github: "https://github.com/Wahmane-Hamza",
     linkedin: "https://www.linkedin.com/in/hamza-wahmane-8318493b5/",
     twitter: "https://twitter.com/WahmaneHamza",
-    instagram: "https://www.instagram.com/wahmane.hamza",
   },
   stats: [
-    { label: "Public Repositories", value: "25+" },
-    { label: "Core Languages", value: "C, C++, JS, Python" },
-    { label: "Coding School", value: "1337 (42 Network)" },
-    { label: "Focus Areas", value: "Web, Systems & DevOps" },
+    { label: "Kilometers in the Saddle", value: "5,000+ km", detail: "Across mountain passes & coasts" },
+    { label: "Highest Summit Conquered", value: "2,260 m", detail: "Tizi n'Tichka (High Atlas)" },
+    { label: "Coding Pedigree", value: "1337 / 42", detail: "Peer-to-peer systems mastery" },
+    { label: "Open Source Repos", value: "25+", detail: "On GitHub" },
   ],
-  skillCategories: [
+  adventures: [
     {
-      name: "Frontend Development",
-      description: "Building responsive, modern, and interactive web user interfaces.",
-      skills: ["React.js", "JavaScript (ES6+)", "Tailwind CSS", "HTML5 & CSS3", "Responsive Design", "Vite"]
+      id: "high-atlas",
+      title: "The High Atlas Mountain Traverse",
+      route: "Marrakech ➔ Tizi n'Tichka Pass ➔ Ouarzazate",
+      distance: "210 km • 2,260m Summit Elevation",
+      type: "High-Altitude Bikepacking",
+      season: "Spring Expedition",
+      story: "A grueling multi-day solo ascent through the spine of Morocco. Battling thin mountain air, fierce headwinds, and hair-raising switchbacks with a fully loaded touring bike. The descent through red clay canyons rewarded every pedal stroke.",
+      highlights: [
+        "Tizi n'Tichka 2,260m mountain pass",
+        "Steep gravel switchbacks",
+        "Wild bivouac under starry Atlas skies",
+        "100% self-supported climb"
+      ],
+      gear: "Gravel Touring Rig • Frame Panniers • Bivvy Shelter",
+      instagramUrl: "https://www.instagram.com/wahmane.hamza/"
     },
     {
-      name: "Backend & Real-Time",
-      description: "Scalable server architectures and low-latency communication.",
-      skills: ["Node.js", "Express.js", "Socket.io", "RESTful APIs", "Python", "WebSockets"]
+      id: "atlantic-coast",
+      title: "Atlantic Trade Wind Century",
+      route: "Essaouira ➔ Imsouane Sea Cliffs ➔ Taghazout",
+      distance: "175 km • Ocean Breeze Endurance",
+      type: "Coastal Touring",
+      season: "Summer Expedition",
+      story: "Tracing dramatic Atlantic cliff lines, salt-spray coastal highways, and golden sand dunes. Fighting relentless ocean trade winds during the day and falling asleep to crashing surf at remote coves.",
+      highlights: [
+        "Sweeping ocean cliff lookouts",
+        "Argan forest backroads",
+        "Atlantic trade wind endurance",
+        "Fresh coastal provisions & sunset pacelines"
+      ],
+      gear: "Aero Frame Pack • Salinity Chain Care • Bivy"
     },
     {
-      name: "Systems & Low-Level",
-      description: "Memory management, concurrent computing, and Unix internals (1337 / 42).",
-      skills: ["C", "C++ (OOP)", "POSIX Threads & Mutexes", "Data Structures", "Algorithms", "Unix / Linux Internals"]
+      id: "southern-oases",
+      title: "Southern Oases & Ancient Kasbahs",
+      route: "Draa Valley ➔ Zagora Frontier",
+      distance: "240 km • Gravel & Desert",
+      type: "Desert Exploration",
+      season: "Autumn Expedition",
+      story: "Riding where tarmac surrenders to ancient gravel caravan trails, surrounded by thousands of date palms and thousand-year-old earthen kasbahs. A test of hydration, navigation by instinct, and inner peace.",
+      highlights: [
+        "Historic adobe kasbah fortresses",
+        "Endless lush date palm canopies",
+        "Remote gravel desert tracks",
+        "Sweet mint tea with nomadic locals"
+      ],
+      gear: "Wide Tubeless Tires • High-Volume Hydration"
     },
     {
-      name: "DevOps & Infrastructure",
-      description: "Containerization, network engineering, and developer tooling.",
-      skills: ["Docker & Docker Compose", "Git & GitHub", "Bash / Shell", "TCP/IP & Subnetting", "Linux Environment", "Vercel"]
+      id: "dawn-centuries",
+      title: "Dawn Centuries & Foothill Escapes",
+      route: "Marrakech Plains & Atlas Foothills",
+      distance: "100+ km Weekend Rides",
+      type: "Fast Endurance",
+      season: "Year-Round",
+      story: "Escaping the city before first light. Slicing through cool morning air across olive groves with the snowy Atlas peaks towering on the horizon. Pure cadence and rhythm that clears the mind for complex coding puzzles.",
+      highlights: [
+        "100km+ single-session centuries",
+        "Snowy Atlas mountain backdrops",
+        "Steady pedal cadence training",
+        "Pre-code mental clarity"
+      ],
+      gear: "Lightweight Cockpit • Carbon Wheels"
     }
   ],
-  projects: [
-    {
-      id: "eff_cloud",
-      title: "eff_cloud — Cloud Storage Architecture",
-      description: "Containerized cloud infrastructure for user and file storage management featuring Docker Compose orchestration and volume isolation.",
-      tags: ["Docker", "Docker Compose", "JavaScript", "Linux"],
-      category: "Full-Stack",
-      repoUrl: "https://github.com/Wahmane-Hamza/eff_cloud",
-      demoUrl: null,
-      stars: 1,
-      featured: true,
-      highlights: ["Multi-container deployment", "Volume isolation", "Automated orchestration"]
-    },
-    {
-      id: "online-multiplayer",
-      title: "Real-Time Multiplayer Game",
-      description: "Full-stack multiplayer browser game engine leveraging WebSockets for instant state synchronization, room management, and player interaction.",
-      tags: ["Node.js", "Express", "Socket.io", "WebSockets"],
-      category: "Interactive / Games",
-      repoUrl: "https://github.com/Wahmane-Hamza/Online-Multiplayer-JavaScript-Game",
-      demoUrl: null,
-      stars: 0,
-      featured: true,
-      highlights: ["Sub-50ms sync latency", "Room creation & matchmaking", "Event-driven architecture"]
-    },
-    {
-      id: "bus-reservation",
-      title: "Bus Reservation Platform",
-      description: "Interactive seat booking and ticket reservation web application with responsive route filtering, dynamic seating maps, and clean UI.",
-      tags: ["React", "Tailwind CSS", "React Router", "JavaScript"],
-      category: "Full-Stack",
-      repoUrl: "https://github.com/Wahmane-Hamza/Bus_reservation",
-      demoUrl: null,
-      stars: 0,
-      featured: true,
-      highlights: ["Interactive visual seat grid", "Client-side routing", "Tailwind responsive design"]
-    },
-    {
-      id: "philosophers",
-      title: "Philosophers — Concurrency & Threads",
-      description: "1337 project solving the classic Dining Philosophers dilemma. Implemented POSIX threads, mutex locking, precise microsecond timing, and starvation prevention.",
-      tags: ["C", "Multithreading", "Mutexes", "POSIX Threads"],
-      category: "Systems & C/C++",
-      repoUrl: "https://github.com/Wahmane-Hamza/Philosophers",
-      demoUrl: null,
-      stars: 0,
-      featured: true,
-      highlights: ["Zero race conditions", "Deadlock avoidance", "Microsecond-accurate timekeeping"]
-    },
-    {
-      id: "push-swap",
-      title: "Push_swap — Algorithmic Sorter",
-      description: "High-performance algorithmic project sorting stacks of integers with minimal instructions using an optimized chunk-sort algorithm and complexity analysis.",
-      tags: ["C", "Algorithms", "Data Structures", "Optimization"],
-      category: "Systems & C/C++",
-      repoUrl: "https://github.com/Wahmane-Hamza/Push_swap",
-      demoUrl: null,
-      stars: 0,
-      featured: true,
-      highlights: ["O(N log N) efficiency", "Two-stack manipulation", "Exhaustive error handling"]
-    },
-    {
-      id: "so-long",
-      title: "so_long — 2D Mini Game Engine",
-      description: "Tile-based 2D game developed using the MiniLibX graphic library. Features map flood-fill path validation, sprite animations, and interactive event loops.",
-      tags: ["C", "MiniLibX", "Graphics", "Pathfinding"],
-      category: "Systems & C/C++",
-      repoUrl: "https://github.com/Wahmane-Hamza/so_long",
-      demoUrl: null,
-      stars: 1,
-      featured: false,
-      highlights: ["Flood-fill map validation", "Custom sprite rendering", "Smooth key event handling"]
-    },
-    {
-      id: "pipex",
-      title: "pipex — Unix Pipeline Recreation",
-      description: "Re-engineered the Unix shell pipeline mechanism (`< infile cmd1 | cmd2 > outfile`) using pipe(), fork(), dup2(), and execve() with proper process hierarchies.",
-      tags: ["C", "Unix", "System Calls", "IPC"],
-      category: "Systems & C/C++",
-      repoUrl: "https://github.com/Wahmane-Hamza/pipex",
-      demoUrl: null,
-      stars: 0,
-      featured: false,
-      highlights: ["File descriptor management", "Process forking & pipes", "PATH parsing & command resolution"]
-    },
-    {
-      id: "cpp-modules",
-      title: "C++ Object-Oriented Modules",
-      description: "Advanced exploration of C++ object-oriented design patterns, orthodox canonical forms, dynamic polymorphism, operator overloading, and template metaprogramming.",
-      tags: ["C++", "OOP", "Polymorphism", "Templates"],
-      category: "Systems & C/C++",
-      repoUrl: "https://github.com/Wahmane-Hamza/cpp-I",
-      demoUrl: null,
-      stars: 0,
-      featured: false,
-      highlights: ["Orthodox Canonical Class Forms", "Virtual function tables", "Template metaprogramming"]
-    },
-    {
-      id: "netpractice",
-      title: "NetPractice — Network Architecture",
-      description: "Hands-on project mastering TCP/IP networking, variable-length subnet masks (VLSM), IP routing tables, default gateways, and network packet simulation.",
-      tags: ["Networking", "TCP/IP", "Subnetting", "Routing"],
-      category: "Systems & C/C++",
-      repoUrl: "https://github.com/Wahmane-Hamza/NetPractice",
-      demoUrl: null,
-      stars: 1,
-      featured: false,
-      highlights: ["IPv4 subnet calculations", "Custom routing table resolution", "CIDR notation proficiency"]
-    },
-    {
-      id: "valorant-store",
-      title: "Valorant Web Store Clone",
-      description: "Dynamic frontend storefront replicating the sleek aesthetic and item preview features of the Valorant game marketplace.",
-      tags: ["JavaScript", "CSS3", "UI/UX", "Frontend"],
-      category: "Interactive / Games",
-      repoUrl: "https://github.com/Wahmane-Hamza/Valorant-store",
-      demoUrl: null,
-      stars: 0,
-      featured: false,
-      highlights: ["Cyberpunk gaming aesthetic", "Interactive item carousel", "Modern CSS animations"]
-    }
-  ],
-  education: [
-    {
-      institution: "1337 Coding School (UM6P / 42 Network)",
-      degree: "Software Engineering & Computer Science",
-      period: "Casablanca / Khouribga / Benguerir, Morocco",
-      description: "Peer-to-peer, project-based curriculum without teachers or lectures. Mastered low-level systems programming in C and C++, algorithmic complexity, Unix system calls, networks, and concurrent multithreading.",
-      badge: "42 Network"
-    }
-  ]
+  engineering: {
+    overview: "Formed in the intensive, teacher-less environment of 1337 Coding School (42 Network), my engineering philosophy mirrors my cycling: self-reliance, endurance, and total ownership of every problem.",
+    pillars: [
+      {
+        title: "Systems & Low-Level Architecture",
+        desc: "Mastery of C and C++, POSIX threads, race condition prevention, Unix system calls, and algorithms developed from scratch at 1337.",
+        tags: ["C", "C++", "POSIX Threads", "Unix Internals", "Memory Management", "Algorithms"]
+      },
+      {
+        title: "Full-Stack Web Engineering",
+        desc: "Building real-time, responsive modern applications with React, Node.js, Express, WebSockets, and Docker containerization.",
+        tags: ["React", "JavaScript", "Node.js", "Socket.io", "Docker", "Tailwind CSS"]
+      }
+    ]
+  }
 };

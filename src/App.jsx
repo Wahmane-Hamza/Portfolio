@@ -1,20 +1,17 @@
-import React, { useState } from 'react';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import About from './components/About';
-import Skills from './components/Skills';
-import Projects from './components/Projects';
-import Education from './components/Education';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
-import TerminalModal from './components/TerminalModal';
-import { Terminal, ArrowUp } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import VintageNavbar from './components/VintageNavbar';
+import VintageHero from './components/VintageHero';
+import CyclingExpeditions from './components/CyclingExpeditions';
+import EngineeringParchment from './components/EngineeringParchment';
+import VintageAbout from './components/VintageAbout';
+import VintageContact from './components/VintageContact';
+import VintageFooter from './components/VintageFooter';
+import { ArrowUp, Compass } from 'lucide-react';
 
 export default function App() {
-  const [isTerminalOpen, setIsTerminalOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const checkScroll = () => {
       setShowScrollTop(window.scrollY > 400);
     };
@@ -27,51 +24,32 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-dark-900 text-slate-100 flex flex-col font-sans selection:bg-cyan-500/30 selection:text-white">
-      {/* Top Navigation */}
-      <Navbar onOpenTerminal={() => setIsTerminalOpen(true)} />
+    <div className="min-h-screen bg-[#f5eed8] text-[#2b1c11] flex flex-col font-serif selection:bg-[#c59b27]/30 selection:text-[#1e140b]">
+      {/* Antique Navigation */}
+      <VintageNavbar />
 
-      {/* Main Content Sections */}
+      {/* Main Sections */}
       <main className="flex-1">
-        <Hero onOpenTerminal={() => setIsTerminalOpen(true)} />
-        <About />
-        <Skills />
-        <Projects />
-        <Education />
-        <Contact />
+        <VintageHero />
+        <CyclingExpeditions />
+        <EngineeringParchment />
+        <VintageAbout />
+        <VintageContact />
       </main>
 
-      {/* Footer */}
-      <Footer />
+      {/* Antique Footer */}
+      <VintageFooter />
 
-      {/* Interactive Terminal CLI Modal */}
-      <TerminalModal
-        isOpen={isTerminalOpen}
-        onClose={() => setIsTerminalOpen(false)}
-      />
-
-      {/* Floating Action Buttons */}
-      <div className="fixed bottom-6 right-6 z-40 flex flex-col gap-2.5">
-        {/* Terminal quick-launch floating button */}
+      {/* Floating Scroll-to-Top Button Styled like an Antique Compass */}
+      {showScrollTop && (
         <button
-          onClick={() => setIsTerminalOpen(true)}
-          className="p-3.5 rounded-2xl bg-dark-800/90 text-cyan-400 border border-cyan-500/30 hover:border-cyan-400 hover:bg-dark-700 shadow-xl backdrop-blur-md transition-all hover:scale-105 group"
-          title="Open interactive terminal"
+          onClick={scrollToTop}
+          className="fixed bottom-6 right-6 z-40 p-3.5 rounded-full bg-[#8b261e] text-[#fffdfa] border-2 border-[#c59b27] shadow-xl hover:bg-[#a02f26] hover:scale-105 transition-all group"
+          title="Return to Top"
         >
-          <Terminal className="w-5 h-5 group-hover:rotate-6 transition-transform" />
+          <ArrowUp className="w-5 h-5 group-hover:-translate-y-0.5 transition-transform" />
         </button>
-
-        {/* Scroll to top button */}
-        {showScrollTop && (
-          <button
-            onClick={scrollToTop}
-            className="p-3.5 rounded-2xl bg-dark-800/90 text-slate-300 border border-white/10 hover:border-white/30 hover:bg-dark-700 shadow-xl backdrop-blur-md transition-all hover:scale-105"
-            title="Scroll to top"
-          >
-            <ArrowUp className="w-5 h-5" />
-          </button>
-        )}
-      </div>
+      )}
     </div>
   );
 }

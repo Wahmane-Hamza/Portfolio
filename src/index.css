@@ -4,51 +4,95 @@
 
 @layer base {
   body {
-    background-color: #090d16;
-    color: #e2e8f0;
+    background-color: #f5eed8;
+    color: #2b1c11;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    background-image: 
+      radial-gradient(ellipse at top, rgba(255, 255, 255, 0.6) 0%, transparent 60%),
+      radial-gradient(circle at bottom right, rgba(197, 155, 39, 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 10% 20%, rgba(139, 38, 30, 0.03) 0%, transparent 30%);
   }
 }
 
-/* Custom modern scrollbar */
+/* Antique Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #090d16;
+  background: #ecdcb9;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1e293b;
+  background: #a8844f;
   border-radius: 4px;
+  border: 2px solid #ecdcb9;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #334155;
+  background: #7a5a2e;
 }
 
-/* Subtle background grid pattern */
-.bg-grid-pattern {
-  background-image: radial-gradient(rgba(14, 165, 233, 0.08) 1px, transparent 1px);
-  background-size: 32px 32px;
+/* Parchment Card Styles */
+.parchment-sheet {
+  background: #fffcf4;
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.8) 0%, transparent 70%),
+    linear-gradient(180deg, #fffcf4 0%, #f9f0db 100%);
+  border: 1px solid rgba(170, 132, 60, 0.35);
+  box-shadow: 
+    0 8px 30px -4px rgba(78, 52, 23, 0.15),
+    0 2px 6px rgba(78, 52, 23, 0.08),
+    inset 0 0 35px rgba(214, 179, 108, 0.12);
+  position: relative;
 }
 
-/* Glow effects */
-.glow-cyan {
-  box-shadow: 0 0 50px -10px rgba(6, 182, 212, 0.25);
+.parchment-sheet::before {
+  content: '';
+  position: absolute;
+  inset: 5px;
+  border: 1px dashed rgba(184, 134, 11, 0.35);
+  pointer-events: none;
+  border-radius: inherit;
 }
 
-.glow-emerald {
-  box-shadow: 0 0 50px -10px rgba(16, 185, 129, 0.25);
+/* Torn / Deckle Edge Card */
+.deckle-edge {
+  box-shadow: 
+    0 12px 28px -6px rgba(58, 38, 17, 0.18),
+    0 2px 8px rgba(58, 38, 17, 0.1),
+    inset 0 0 45px rgba(184, 134, 11, 0.1);
+  border: 1px solid rgba(160, 120, 50, 0.4);
 }
 
-.glass-panel {
-  background: rgba(15, 23, 42, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.07);
+/* Wax Seal Badge */
+.wax-seal {
+  background: radial-gradient(circle at 35% 35%, #ba3128 0%, #871d17 65%, #590f0a 100%);
+  box-shadow: 
+    0 4px 12px rgba(89, 15, 10, 0.4),
+    inset 0 2px 3px rgba(255, 255, 255, 0.35),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.4);
+  border: 2px solid #a3221a;
 }
 
-.glass-panel:hover {
-  border-color: rgba(6, 182, 212, 0.3);
+/* Postal Stamp Perforated Border Effect */
+.postage-stamp {
+  border: 2px dashed #997843;
+  background: #fbf5e6;
+  box-shadow: 0 4px 12px rgba(60, 40, 20, 0.08);
+}
+
+/* Ribbon Banner */
+.ribbon-banner {
+  background: linear-gradient(180deg, #ecd8af 0%, #dfc38f 100%);
+  border-top: 1px solid #f9edd4;
+  border-bottom: 2px solid #8e6c31;
+  box-shadow: 0 4px 12px rgba(60, 40, 20, 0.12);
+}
+
+/* Map Background Lines */
+.bg-map-pattern {
+  background-image: 
+    radial-gradient(circle at 20% 40%, rgba(184, 134, 11, 0.06) 0%, transparent 40%),
+    radial-gradient(circle at 80% 60%, rgba(139, 38, 30, 0.04) 0%, transparent 40%);
 }
