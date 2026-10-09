@@ -1,6 +1,6 @@
 import React from 'react';
 import { portfolioData } from '../data/portfolioData';
-import { Github, Linkedin, Heart, Code2 } from 'lucide-react';
+import { Github, Linkedin, Code2 } from 'lucide-react';
 
 export default function Footer() {
   const { personal, socials } = portfolioData;
@@ -21,12 +21,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Center: Tech note */}
-          <div className="flex items-center gap-1.5 text-center text-slate-400">
-            <span>Built with React, Vite & Tailwind CSS</span>
-            <span>•</span>
-            <span className="text-cyan-400 font-mono">1337-style</span>
-          </div>
 
           {/* Right: Social icons */}
           <div className="flex items-center gap-3">
