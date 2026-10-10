@@ -2,52 +2,6 @@ import React, { useState } from 'react';
 import { portfolioData } from '../../data/portfolioData';
 import { Github, Linkedin, ExternalLink, Terminal, Server, Trophy, Globe, Code2, ChevronDown, ChevronUp, FolderOpen, Folder } from 'lucide-react';
 
-/* Realistic 3D Metallic Paperclip (matching User Image 3) */
-function MetallicPaperclip({ className = "" }) {
-  return (
-    <svg
-      className={`pointer-events-none select-none drop-shadow-[0_2px_3px_rgba(0,0,0,0.45)] ${className}`}
-      viewBox="0 0 28 54"
-      fill="none"
-    >
-      <defs>
-        <linearGradient id="chromeSteelProj" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#f8fafc" />
-          <stop offset="25%" stopColor="#cbd5e1" />
-          <stop offset="50%" stopColor="#64748b" />
-          <stop offset="75%" stopColor="#e2e8f0" />
-          <stop offset="100%" stopColor="#334155" />
-        </linearGradient>
-      </defs>
-      {/* Outer Wire Back Shadow */}
-      <path
-        d="M 9 18 L 9 38 C 9 46 21 46 21 38 L 21 11 C 21 4 14 4 14 11 L 14 36 C 14 40 18 40 18 36 L 18 16"
-        stroke="#1e293b"
-        strokeWidth="3.2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        opacity="0.35"
-      />
-      {/* Main Metallic Wire */}
-      <path
-        d="M 9 18 L 9 38 C 9 46 21 46 21 38 L 21 11 C 21 4 14 4 14 11 L 14 36 C 14 40 18 40 18 36 L 18 16"
-        stroke="url(#chromeSteelProj)"
-        strokeWidth="2.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      {/* Specular White Glint */}
-      <path
-        d="M 9.5 20 L 9.5 37 C 9.5 44 20.5 44 20.5 37 L 20.5 12"
-        stroke="#ffffff"
-        strokeWidth="0.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        opacity="0.8"
-      />
-    </svg>
-  );
-}
 
 /* Fingerprint Graphic (matching Folder II in Image 2) */
 function FingerprintGraphic({ className = "" }) {
@@ -243,13 +197,6 @@ export default function PageProjects({ onSwitchTab, onOpenContact }) {
                     <span className="hidden md:inline-block text-[10px] text-[#72191a] font-bold pl-1">
                       [{item.badge}]
                     </span>
-
-                    {/* Paperclip Graphic on Folder III (like in Image 2!) */}
-                    {idx === 2 && (
-                      <div className="absolute -top-3 right-3 z-30">
-                        <MetallicPaperclip className="w-5 h-8" />
-                      </div>
-                    )}
                   </div>
                 </div>
 
@@ -490,52 +437,55 @@ export default function PageProjects({ onSwitchTab, onOpenContact }) {
           </div>
         </div>
 
-        {/* 2. LinkedIn Professional Dossier Memo (Image 4 & 5 Torn Grid Paper with Masking Tape) */}
-        <div className="relative group filter drop-shadow-[0_8px_18px_rgba(25,12,4,0.18)]">
-          {/* Masking tape on top-right and bottom-left corners (like Image 4) */}
-          <MaskingTapePiece className="-top-2.5 right-6" angle="16deg" />
-          <MaskingTapePiece className="-bottom-2.5 left-4" angle="-14deg" />
+        {/* 2. LinkedIn Credentials Dossier Scrap (Image 3 Authentic Crumpled Kraft Scrap with Real Bronze Clip) */}
+        <div className="relative group filter drop-shadow-[0_10px_22px_rgba(25,12,4,0.22)] transition-transform duration-300 hover:-translate-y-1 flex flex-col justify-between">
+          {/* Authentic Crumpled Kraft Paper Scrap with Metallic Clip (User Image 3) */}
+          <img
+            src="./assets/linkedin_paper_scrap.png"
+            alt="LinkedIn Kraft Paper Scrap"
+            className="absolute inset-0 w-full h-full object-fill pointer-events-none select-none filter contrast-105"
+          />
 
-          <div className="torn-grid-paper-aged torn-paper-slip p-5 sm:p-6 text-[#1c1208] border border-[#a89063]/50 relative transition-transform duration-300 group-hover:-translate-y-1 flex flex-col justify-between h-full">
+          <div className="relative z-10 p-5 sm:p-6 pt-14 sm:pt-16 pb-6 text-[#160e07] flex flex-col justify-between h-full">
             <div>
-              {/* Stamp in upper corner */}
-              <div className="flex items-start justify-between gap-3 mb-3">
-                <div className="flex items-center gap-3">
-                  <div className="w-11 h-11 rounded border-2 border-[#1c3248] bg-[#f0f4fa] flex items-center justify-center text-[#0d3b66] shadow-sm shrink-0">
-                    <Linkedin className="w-6 h-6" />
+              {/* Header inside Kraft Paper Scrap */}
+              <div className="flex items-start justify-between gap-2.5 mb-2.5">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-10 h-10 rounded border-2 border-[#1c1208] bg-[#fbf5e5]/80 flex items-center justify-center text-[#1c1208] shadow-sm shrink-0">
+                    <Linkedin className="w-5 h-5 text-[#0d3b66]" />
                   </div>
                   <div>
-                    <span className="text-[10px] font-typewriter font-bold text-[#0d3b66] uppercase tracking-widest block">
+                    <span className="text-[10px] font-typewriter font-bold text-[#3d2714] uppercase tracking-widest block">
                       PERSONNEL DOSSIER // 02
                     </span>
-                    <h3 className="text-base sm:text-lg font-typewriter font-black uppercase text-[#1a1209]">
+                    <h3 className="text-base sm:text-lg font-typewriter font-black uppercase text-[#140c06] leading-tight">
                       LINKEDIN CREDENTIALS
                     </h3>
                   </div>
                 </div>
-                <span className="font-typewriter text-[9px] font-bold text-[#0d3b66] border border-[#0d3b66]/60 px-1.5 py-0.5 uppercase tracking-wider -rotate-1 bg-[#0d3b66]/5 shrink-0">
-                  ACTIVE PROFILE
+                <span className="font-typewriter text-[9px] font-bold text-[#1c1208] border border-[#1c1208]/70 px-1.5 py-0.5 uppercase tracking-wider rotate-1 bg-[#fbf5e5]/50 shrink-0">
+                  VERIFIED DOSSIER
                 </span>
               </div>
 
-              <p className="font-typewriter text-xs text-[#3a2817] leading-relaxed pt-1">
+              <p className="font-typewriter text-xs text-[#211409] font-medium leading-relaxed pt-1">
                 Verified career dossier and professional network. Connect for software engineering roles, technical collaboration, systems architecture inquiries, and verified background details.
               </p>
             </div>
 
-            {/* Taped torn paper link button (matching user Image 4) */}
-            <div className="mt-4 pt-3 border-t border-[#8a6e45]/30 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-              <span className="font-typewriter text-[10px] text-[#63482a] font-bold">
+            {/* Bottom Inked Reference & Link Button */}
+            <div className="mt-4 pt-3 border-t border-[#4a341f]/35 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+              <span className="font-typewriter text-[10px] text-[#2b1a0d] font-bold tracking-wider">
                 REF: HAMZA WAHMANE
               </span>
               <a
                 href={socials.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative inline-flex items-center justify-center gap-2 px-4 py-2 bg-[#edf3fa] hover:bg-[#d8e5f5] text-[#0d3b66] border-2 border-[#0d3b66] font-typewriter text-xs font-black uppercase tracking-wider rounded-sm shadow-sm transition-all hover:scale-105"
+                className="relative inline-flex items-center justify-center gap-2 px-4 py-2 bg-[#1c1208] hover:bg-[#382312] text-[#f7eed6] border border-[#4a341f] font-typewriter text-xs font-black uppercase tracking-wider rounded-sm shadow-md transition-all hover:scale-105"
               >
                 <span>OPEN LINKEDIN PROFILE</span>
-                <ExternalLink className="w-3.5 h-3.5" />
+                <ExternalLink className="w-3.5 h-3.5 text-[#f7eed6]" />
               </a>
             </div>
           </div>
@@ -543,13 +493,12 @@ export default function PageProjects({ onSwitchTab, onOpenContact }) {
 
       </div>
 
-      {/* Bottom Footer Navigation (Torn Grid Paper Buttons with Metallic Paperclip - Image 3) */}
+      {/* Bottom Footer Navigation */}
       <div className="pt-6 border-t-2 border-[#1f1c19] flex flex-col sm:flex-row items-center justify-between gap-4 font-typewriter">
         <div className="relative inline-block group">
-          <MetallicPaperclip className="absolute -top-3 left-2 w-3.5 h-7 z-20" />
           <button
             onClick={() => onSwitchTab('general')}
-            className="relative z-10 torn-grid-paper torn-paper-slip pl-6 pr-3.5 py-2 text-xs font-bold text-[#3a2614] hover:text-[#1a140e] uppercase tracking-wider border border-[#b8a679]/70 transition-all hover:-translate-y-0.5 hover:shadow-md"
+            className="torn-grid-paper torn-paper-slip px-4 py-2 text-xs font-bold text-[#3a2614] hover:text-[#1a140e] uppercase tracking-wider border border-[#b8a679]/70 transition-all hover:-translate-y-0.5 hover:shadow-md"
           >
             ⬅ Back to Dossier (Page 1)
           </button>
@@ -557,20 +506,18 @@ export default function PageProjects({ onSwitchTab, onOpenContact }) {
 
         <div className="flex flex-wrap items-center gap-3">
           <div className="relative inline-block group">
-            <MetallicPaperclip className="absolute -top-3 left-2 w-3.5 h-7 z-20" />
             <button
               onClick={() => onSwitchTab('cycling')}
-              className="relative z-10 torn-grid-paper torn-paper-slip pl-6 pr-3.5 py-2 text-[#1c1208] hover:text-[#8a1718] border border-[#b8a679]/70 text-xs font-bold uppercase tracking-wider transition-all hover:-translate-y-0.5 hover:shadow-md"
+              className="torn-grid-paper torn-paper-slip px-4 py-2 text-[#1c1208] hover:text-[#8a1718] border border-[#b8a679]/70 text-xs font-bold uppercase tracking-wider transition-all hover:-translate-y-0.5 hover:shadow-md"
             >
               Cycling Expeditions (Page 3) ➔
             </button>
           </div>
 
           <div className="relative inline-block group">
-            <MetallicPaperclip className="absolute -top-3 left-2 w-3.5 h-7 z-20" />
             <button
               onClick={onOpenContact}
-              className="relative z-10 torn-grid-paper torn-paper-slip pl-6 pr-3.5 py-2 text-[#8a1718] hover:text-[#52090a] border-2 border-[#8a1718]/70 text-xs font-bold uppercase tracking-wider transition-all hover:-translate-y-0.5 hover:shadow-md"
+              className="torn-grid-paper torn-paper-slip px-4 py-2 text-[#8a1718] hover:text-[#52090a] border-2 border-[#8a1718]/70 text-xs font-bold uppercase tracking-wider transition-all hover:-translate-y-0.5 hover:shadow-md"
             >
               Contact ✉
             </button>

@@ -101,52 +101,6 @@ function TornPaperBorderOverlay() {
   );
 }
 
-/* Realistic 3D Metallic Paperclip (matching User Image 3) */
-function MetallicPaperclip({ className = "" }) {
-  return (
-    <svg
-      className={`pointer-events-none select-none drop-shadow-[0_2px_3px_rgba(0,0,0,0.45)] ${className}`}
-      viewBox="0 0 28 54"
-      fill="none"
-    >
-      <defs>
-        <linearGradient id="chromeSteelCycling" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#f8fafc" />
-          <stop offset="25%" stopColor="#cbd5e1" />
-          <stop offset="50%" stopColor="#64748b" />
-          <stop offset="75%" stopColor="#e2e8f0" />
-          <stop offset="100%" stopColor="#334155" />
-        </linearGradient>
-      </defs>
-      {/* Outer Wire Back Shadow */}
-      <path
-        d="M 9 18 L 9 38 C 9 46 21 46 21 38 L 21 11 C 21 4 14 4 14 11 L 14 36 C 14 40 18 40 18 36 L 18 16"
-        stroke="#1e293b"
-        strokeWidth="3.2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        opacity="0.35"
-      />
-      {/* Main Metallic Wire */}
-      <path
-        d="M 9 18 L 9 38 C 9 46 21 46 21 38 L 21 11 C 21 4 14 4 14 11 L 14 36 C 14 40 18 40 18 36 L 18 16"
-        stroke="url(#chromeSteelCycling)"
-        strokeWidth="2.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      {/* Specular White Glint */}
-      <path
-        d="M 9.5 20 L 9.5 37 C 9.5 44 20.5 44 20.5 37 L 20.5 12"
-        stroke="#ffffff"
-        strokeWidth="0.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        opacity="0.8"
-      />
-    </svg>
-  );
-}
 
 /* Tall Vintage Illustrated Morocco Map (Matching Image 1 outline + Image 2 Alberta style + Image 3 trail) */
 function MoroccoMap() {
@@ -879,26 +833,76 @@ export default function PageCycling({ onSwitchTab, onOpenContact }) {
 
                 </div>
 
-                {/* Bottom Footer Bar with Quote and Vintage Instagram Dispatch Link (with Paperclip, text 100% visible) */}
+                {/* Bottom Footer Bar with Quote */}
                 <div className="mt-3 pt-2.5 border-t border-[#54381e]/30 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
                   <div className="font-handwriting text-sm sm:text-base text-[#3d2412] font-bold">
                     "SOME ROADS DON'T FADE. THEY TEST YOU."
                   </div>
-                  <div className="relative inline-block group shrink-0" onClick={(e) => e.stopPropagation()}>
-                    <MetallicPaperclip className="absolute -top-3 left-2 w-3.5 h-7 z-20" />
-                    <a
-                      href={socials.instagram}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="relative z-10 torn-grid-paper torn-paper-slip pl-6 pr-3.5 py-1.5 border-2 border-[#8a1718]/70 text-[#8a1718] hover:text-[#52090a] font-typewriter text-xs font-bold uppercase tracking-wider inline-flex items-center gap-2 transition-all hover:-translate-y-0.5 hover:shadow-md"
-                    >
-                      <Instagram className="w-3.5 h-3.5 text-[#8a1718]" />
-                      <span>FIELD ARCHIVE (@WAHMANE.HAMZA)</span>
-                      <ExternalLink className="w-3 h-3" />
-                    </a>
+                  <div className="font-typewriter text-[9.5px] text-[#8a1718] font-bold uppercase tracking-wider">
+                    [DISPATCH LOG BELOW ⬇]
                   </div>
                 </div>
 
+              </div>
+            </div>
+
+            {/* 3. Instagram Field Archive Dispatch (User Image 4 Authentic Taped Parchment) */}
+            <div
+              className="relative group cursor-pointer transition-transform duration-200 hover:scale-[1.01] hover:z-30 filter drop-shadow-[0_8px_18px_rgba(25,12,4,0.18)]"
+              onClick={() => setSelectedEvidence({
+                type: 'instagram',
+                id: 'card-instagram',
+                title: 'EXPEDITION INSTAGRAM ARCHIVE // @WAHMANE.HAMZA',
+                tag: 'OFFICIAL FIELD DISPATCH LOG',
+                quote: '"SOME ROADS DON\'T FADE. THEY TEST YOU."',
+                notes: 'Photographic trail evidence, mountain pass telemetry, and endurance expedition logs documented in real time across the High Atlas, Toubkal, and Moroccan peaks.',
+                link: socials.instagram
+              })}
+            >
+              {/* Authentic Taped Parchment Background (User Image 4 with Real Masking Tape) */}
+              <div className="relative min-h-[170px] p-4 sm:p-5 flex flex-col justify-between">
+                <img
+                  src="./assets/insta_paper_scrap.png"
+                  alt="Instagram Taped Parchment Scrap"
+                  className="absolute inset-0 w-full h-full object-fill pointer-events-none select-none filter contrast-105"
+                />
+
+                {/* Content typed directly on the taped parchment */}
+                <div className="relative z-10 space-y-1.5 pt-1 pl-12 sm:pl-16 pr-3">
+                  <div className="flex items-center justify-between border-b border-[#5c3e21]/30 pb-1.5">
+                    <div className="flex items-center gap-2">
+                      <Instagram className="w-4 h-4 text-[#8a1718]" />
+                      <span className="font-poster text-xs sm:text-sm font-black uppercase text-[#1a1107] tracking-wider">
+                        INSTAGRAM FIELD ARCHIVE
+                      </span>
+                    </div>
+                    <span className="font-typewriter text-[9px] text-[#8a1718] font-bold border border-[#8a1718] px-1.5 py-0.5 uppercase rotate-1 bg-[#8a1718]/5 shrink-0">
+                      LIVE LOG
+                    </span>
+                  </div>
+
+                  <p className="font-typewriter text-[11px] sm:text-xs text-[#2e1d0f] font-medium leading-relaxed pt-0.5">
+                    Continuous photographic trail evidence, mountain passes, and endurance cycling logs documented on location across the Atlas.
+                  </p>
+                </div>
+
+                {/* Bottom Bar typed on the paper */}
+                <div className="relative z-10 pt-2 mt-2 border-t border-[#5c3e21]/25 flex flex-col sm:flex-row sm:items-center justify-between gap-2 pl-3 pr-2">
+                  <span className="font-typewriter text-[10px] text-[#4a321b] font-bold">
+                    DISPATCH REF: @WAHMANE.HAMZA
+                  </span>
+                  <a
+                    href={socials.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 bg-[#8a1718] hover:bg-[#6e1011] text-[#fbf5e5] font-typewriter text-[11px] font-bold uppercase tracking-wider rounded-sm shadow transition-all hover:scale-105 shrink-0"
+                  >
+                    <Instagram className="w-3.5 h-3.5" />
+                    <span>OPEN INSTAGRAM ARCHIVE</span>
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
+                </div>
               </div>
             </div>
 
@@ -1079,9 +1083,6 @@ export default function PageCycling({ onSwitchTab, onOpenContact }) {
             className="relative max-w-xl w-full bg-[#fbf5e5] p-5 sm:p-7 rounded-lg shadow-2xl space-y-4 font-typewriter text-[#2b1c11] border-2 border-[#54381e] my-auto animate-in zoom-in-95 duration-200"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Paperclip on top-left of the modal card */}
-            <MetallicPaperclip className="absolute -top-3.5 left-6 w-5 h-9 z-20" />
-
             {/* Close button */}
             <button
               onClick={() => setSelectedEvidence(null)}
@@ -1275,17 +1276,51 @@ export default function PageCycling({ onSwitchTab, onOpenContact }) {
               </div>
             )}
 
-            {/* Modal Bottom Dispatch Footer with Paperclip and 100% visible text */}
+            {/* 8. Instagram Dispatch Type */}
+            {selectedEvidence.type === 'instagram' && (
+              <div className="bg-[#fff9e6] p-5 rounded border border-[#b8a679] shadow-inner space-y-3">
+                <div className="flex items-center justify-between border-b border-[#b8a679]/40 pb-2">
+                  <div className="flex items-center gap-2">
+                    <Instagram className="w-5 h-5 text-[#8a1718]" />
+                    <span className="font-poster text-base font-bold text-[#1a140e] uppercase">
+                      {selectedEvidence.title}
+                    </span>
+                  </div>
+                  <span className="text-[10px] font-bold text-[#8a1718] border border-[#8a1718] px-2 py-0.5 uppercase">
+                    FIELD LOG
+                  </span>
+                </div>
+                <div className="font-handwriting text-2xl text-[#8a1718] font-bold">
+                  {selectedEvidence.quote}
+                </div>
+                <div className="text-xs text-[#3d2716] font-typewriter leading-relaxed pt-1">
+                  {selectedEvidence.notes}
+                </div>
+                <div className="pt-2 border-t border-[#b8a679]/40 flex justify-end">
+                  <a
+                    href={selectedEvidence.link || socials.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-2 bg-[#8a1718] hover:bg-[#6e1011] text-[#fbf5e5] font-typewriter text-xs font-bold uppercase tracking-wider rounded shadow flex items-center gap-2"
+                  >
+                    <Instagram className="w-4 h-4" />
+                    <span>Open Instagram Profile (@wahmane.hamza)</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                </div>
+              </div>
+            )}
+
+            {/* Modal Bottom Dispatch Footer */}
             <div className="pt-3 border-t border-[#54381e]/30 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <span className="text-xs text-[#5a4430] font-typewriter">[AUTHENTIC DISPATCH ARCHIVE]</span>
               
               <div className="relative inline-block group">
-                <MetallicPaperclip className="absolute -top-3 left-2 w-3.5 h-7 z-20" />
                 <a
                   href={socials.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="relative z-10 torn-grid-paper torn-paper-slip pl-6 pr-3.5 py-1.5 border-2 border-[#8a1718] text-[#8a1718] hover:text-[#52090a] font-typewriter font-bold text-xs uppercase tracking-wider inline-flex items-center gap-1.5 transition-all hover:-translate-y-0.5 hover:shadow"
+                  className="torn-grid-paper torn-paper-slip px-3.5 py-1.5 border-2 border-[#8a1718] text-[#8a1718] hover:text-[#52090a] font-typewriter font-bold text-xs uppercase tracking-wider inline-flex items-center gap-1.5 transition-all hover:-translate-y-0.5 hover:shadow"
                 >
                   <Instagram className="w-4 h-4 text-[#8a1718]" />
                   <span>Open Instagram Archive</span>
@@ -1298,13 +1333,12 @@ export default function PageCycling({ onSwitchTab, onOpenContact }) {
         </div>
       )}
 
-      {/* Bottom Navigation Buttons (Torn Grid Paper with Metallic Paperclip - Image 3) */}
+      {/* Bottom Navigation Buttons */}
       <div className="pt-4 border-t-2 border-[#1f1c19] flex flex-col sm:flex-row items-center justify-between gap-4 font-typewriter">
         <div className="relative inline-block group">
-          <MetallicPaperclip className="absolute -top-3 left-2 w-3.5 h-7 z-20" />
           <button
             onClick={() => onSwitchTab('projects')}
-            className="relative z-10 torn-grid-paper torn-paper-slip pl-6 pr-3.5 py-2 text-xs font-bold text-[#3d2716] hover:text-[#1a1209] uppercase tracking-wider border border-[#a89063]/60 transition-all hover:-translate-y-0.5 hover:shadow-md"
+            className="torn-grid-paper torn-paper-slip px-4 py-2 text-xs font-bold text-[#3d2716] hover:text-[#1a1209] uppercase tracking-wider border border-[#a89063]/60 transition-all hover:-translate-y-0.5 hover:shadow-md"
           >
             ⬅ Back to Projects (Page 2)
           </button>
@@ -1312,20 +1346,18 @@ export default function PageCycling({ onSwitchTab, onOpenContact }) {
 
         <div className="flex flex-wrap items-center gap-3">
           <div className="relative inline-block group">
-            <MetallicPaperclip className="absolute -top-3 left-2 w-3.5 h-7 z-20" />
             <button
               onClick={() => onSwitchTab('general')}
-              className="relative z-10 torn-grid-paper torn-paper-slip pl-6 pr-3.5 py-2 text-xs font-bold text-[#2b1c11] hover:text-[#1a1209] uppercase tracking-wider border border-[#a89063]/60 transition-all hover:-translate-y-0.5 hover:shadow-md"
+              className="torn-grid-paper torn-paper-slip px-4 py-2 text-xs font-bold text-[#2b1c11] hover:text-[#1a1209] uppercase tracking-wider border border-[#a89063]/60 transition-all hover:-translate-y-0.5 hover:shadow-md"
             >
               Dossier (Page 1)
             </button>
           </div>
 
           <div className="relative inline-block group">
-            <MetallicPaperclip className="absolute -top-3 left-2 w-3.5 h-7 z-20" />
             <button
               onClick={onOpenContact}
-              className="relative z-10 torn-grid-paper torn-paper-slip pl-6 pr-3.5 py-2 text-xs font-bold text-[#8a1718] hover:text-[#52090a] uppercase tracking-wider border-2 border-[#8a1718]/70 transition-all hover:-translate-y-0.5 hover:shadow-md"
+              className="torn-grid-paper torn-paper-slip px-4 py-2 text-xs font-bold text-[#8a1718] hover:text-[#52090a] uppercase tracking-wider border-2 border-[#8a1718]/70 transition-all hover:-translate-y-0.5 hover:shadow-md"
             >
               Send Dispatch ✉
             </button>
