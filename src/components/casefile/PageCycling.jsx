@@ -27,11 +27,11 @@ function MoroccoMap() {
   return (
     <div className="relative bg-[#eee5ce] border-4 border-[#2d1f14] rounded shadow-2xl p-2.5 sm:p-3 overflow-hidden select-none">
       {/* Map Header Plate (Deep navy banner matching Image 2 ALBERTA header) */}
-      <div className="flex items-center justify-between border-b-2 border-[#2d1f14] pb-2 mb-2 px-1">
-        <div className="bg-[#182329] text-[#f7eed6] px-4 py-1 text-sm sm:text-base font-poster tracking-[0.3em] font-black uppercase rounded-sm border border-[#ede1c7]">
-          M O R O C C O
+      <div className="flex items-center justify-between gap-2 border-b-2 border-[#2d1f14] pb-2 mb-2 px-1">
+        <div className="bg-[#182329] text-[#f7eed6] px-3 sm:px-4 py-1 text-sm sm:text-base font-poster tracking-[0.22em] font-black uppercase rounded-sm border border-[#ede1c7] whitespace-nowrap shrink-0">
+          MOROCCO
         </div>
-        <div className="flex items-center gap-1.5 font-typewriter text-[9px] sm:text-[10px] text-[#4d3621] font-bold">
+        <div className="flex items-center gap-1.5 font-typewriter text-[9px] sm:text-[10px] text-[#4d3621] font-bold whitespace-nowrap shrink-0">
           <Compass className="w-3.5 h-3.5 text-[#8a1718]" />
           <span>31°47'N 7°59'W • EXPEDITION MAP</span>
         </div>
