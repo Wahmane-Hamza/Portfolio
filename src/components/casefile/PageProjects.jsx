@@ -17,15 +17,6 @@ function FingerprintGraphic({ className = "" }) {
   );
 }
 
-/* Realistic Masking Tape Strip (matching User Image 4) */
-function MaskingTapePiece({ className = "", angle = "-15deg" }) {
-  return (
-    <div
-      className={`absolute pointer-events-none z-20 h-4 sm:h-5 w-14 sm:w-16 masking-tape-strip select-none ${className}`}
-      style={{ transform: `rotate(${angle})` }}
-    />
-  );
-}
 
 export default function PageProjects({ onSwitchTab, onOpenContact }) {
   const { socials, projects } = portfolioData;
@@ -386,52 +377,55 @@ export default function PageProjects({ onSwitchTab, onOpenContact }) {
       {/* ======================================================== */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
         
-        {/* 1. GitHub Code Archive Memo (Image 4 & 5 Torn Grid Paper with Masking Tape) */}
-        <div className="relative group filter drop-shadow-[0_8px_18px_rgba(25,12,4,0.18)]">
-          {/* Masking tape on top-left and bottom-right corners (like Image 4) */}
-          <MaskingTapePiece className="-top-2.5 left-4" angle="-18deg" />
-          <MaskingTapePiece className="-bottom-2.5 right-6" angle="14deg" />
+        {/* 1. GitHub Code Archive Dossier Scrap (Same authentic crumpled kraft paper scrap as LinkedIn) */}
+        <div className="relative group filter drop-shadow-[0_10px_22px_rgba(25,12,4,0.22)] transition-transform duration-300 hover:-translate-y-1 flex flex-col justify-between">
+          {/* Authentic Crumpled Kraft Paper Scrap with Metallic Clip (Matching LinkedIn) */}
+          <img
+            src="./assets/github_paper_scrap.png"
+            alt="GitHub Kraft Paper Scrap"
+            className="absolute inset-0 w-full h-full object-fill pointer-events-none select-none filter contrast-105"
+          />
 
-          <div className="torn-grid-paper-aged torn-paper-slip p-5 sm:p-6 text-[#1c1208] border border-[#a89063]/50 relative transition-transform duration-300 group-hover:-translate-y-1 flex flex-col justify-between h-full">
+          <div className="relative z-10 p-5 sm:p-6 pt-14 sm:pt-16 pb-6 text-[#160e07] flex flex-col justify-between h-full">
             <div>
-              {/* Stamp in upper corner */}
-              <div className="flex items-start justify-between gap-3 mb-3">
-                <div className="flex items-center gap-3">
-                  <div className="w-11 h-11 rounded border-2 border-[#3d2716] bg-[#fbf6ea] flex items-center justify-center text-[#1c1208] shadow-sm shrink-0">
-                    <Github className="w-6 h-6" />
+              {/* Header inside Kraft Paper Scrap */}
+              <div className="flex items-start justify-between gap-2.5 mb-2.5">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-10 h-10 rounded border-2 border-[#1c1208] bg-[#fbf5e5]/80 flex items-center justify-center text-[#1c1208] shadow-sm shrink-0">
+                    <Github className="w-5 h-5 text-[#1c1208]" />
                   </div>
                   <div>
                     <span className="text-[10px] font-typewriter font-bold text-[#8a1718] uppercase tracking-widest block">
                       FIELD EVIDENCE MEMO // 01
                     </span>
-                    <h3 className="text-base sm:text-lg font-typewriter font-black uppercase text-[#1a1209]">
+                    <h3 className="text-base sm:text-lg font-typewriter font-black uppercase text-[#140c06] leading-tight">
                       GITHUB CODE ARCHIVE
                     </h3>
                   </div>
                 </div>
-                <span className="font-typewriter text-[9px] font-bold text-[#8a1718] border border-[#8a1718]/60 px-1.5 py-0.5 uppercase tracking-wider rotate-2 bg-[#8a1718]/5 shrink-0">
+                <span className="font-typewriter text-[9px] font-bold text-[#8a1718] border border-[#8a1718]/70 px-1.5 py-0.5 uppercase tracking-wider rotate-1 bg-[#fbf5e5]/50 shrink-0">
                   VERIFIED 42 REPO
                 </span>
               </div>
 
-              <p className="font-typewriter text-xs text-[#3a2817] leading-relaxed pt-1">
+              <p className="font-typewriter text-xs text-[#211409] font-medium leading-relaxed pt-1">
                 Central systems code repository. Access all 25+ public repos, 42 school C/C++ architecture, AST parser logic, Webserv non-blocking multiplexer, and verified commit log trail.
               </p>
             </div>
 
-            {/* Taped torn paper link button (matching user Image 4) */}
-            <div className="mt-4 pt-3 border-t border-[#8a6e45]/30 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-              <span className="font-typewriter text-[10px] text-[#63482a] font-bold">
+            {/* Bottom Inked Reference & Link Button */}
+            <div className="mt-4 pt-3 border-t border-[#4a341f]/35 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+              <span className="font-typewriter text-[10px] text-[#2b1a0d] font-bold tracking-wider">
                 ID: @WAHMANE-HAMZA
               </span>
               <a
                 href={socials.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative inline-flex items-center justify-center gap-2 px-4 py-2 bg-[#f4ebd0] hover:bg-[#e8dbb5] text-[#8a1718] border-2 border-[#8a1718] font-typewriter text-xs font-black uppercase tracking-wider rounded-sm shadow-sm transition-all hover:scale-105"
+                className="relative inline-flex items-center justify-center gap-2 px-4 py-2 bg-[#1c1208] hover:bg-[#382312] text-[#f7eed6] border border-[#4a341f] font-typewriter text-xs font-black uppercase tracking-wider rounded-sm shadow-md transition-all hover:scale-105"
               >
                 <span>OPEN GITHUB ARCHIVE</span>
-                <ExternalLink className="w-3.5 h-3.5" />
+                <ExternalLink className="w-3.5 h-3.5 text-[#f7eed6]" />
               </a>
             </div>
           </div>
