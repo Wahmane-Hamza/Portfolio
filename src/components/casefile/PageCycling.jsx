@@ -22,6 +22,85 @@ function RedPushPin({ className = "", pinId = null }) {
   );
 }
 
+/* Authentic Torn / Cut Deckled Paper Edge Overlay (Image 4 antique burned paper) */
+function TornPaperBorderOverlay() {
+  return (
+    <div className="absolute inset-0 pointer-events-none z-15 overflow-hidden rounded-xl">
+      {/* Burnt/charred perimeter shadow & vignetting */}
+      <div className="absolute inset-0 rounded-xl shadow-[inset_0_0_90px_rgba(30,12,3,0.85),inset_0_0_30px_rgba(15,5,1,0.95)]" />
+
+      {/* Top charred edge gradient */}
+      <div className="absolute top-0 left-0 right-0 h-6 bg-gradient-to-b from-[#1a0a02] via-[#4d2208]/60 to-transparent" />
+      {/* Bottom charred edge gradient */}
+      <div className="absolute bottom-0 left-0 right-0 h-7 bg-gradient-to-t from-[#150701] via-[#4d2208]/70 to-transparent" />
+      {/* Left charred edge gradient */}
+      <div className="absolute top-0 bottom-0 left-0 w-6 bg-gradient-to-r from-[#1a0a02] via-[#4d2208]/50 to-transparent" />
+      {/* Right charred edge gradient */}
+      <div className="absolute top-0 bottom-0 right-0 w-6 bg-gradient-to-l from-[#1a0a02] via-[#4d2208]/50 to-transparent" />
+
+      {/* Jagged, crumbling, torn paper cuts along all four margins (Image 4 style) */}
+      <svg
+        className="absolute inset-0 w-full h-full"
+        viewBox="0 0 1000 1000"
+        preserveAspectRatio="none"
+      >
+        <defs>
+          <filter id="charredFringe">
+            <feTurbulence type="fractalNoise" baseFrequency="0.08" numOctaves="3" result="noise" />
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" xChannelSelector="R" yChannelSelector="G" />
+          </filter>
+        </defs>
+
+        {/* Top torn crumbling edge */}
+        <path
+          d="M 0,0 L 45,6 L 90,2 L 150,8 L 220,1 L 310,9 L 380,3 L 460,7 L 540,2 L 620,8 L 710,1 L 790,9 L 870,3 L 940,7 L 1000,0 L 1000,12 L 930,8 L 860,14 L 780,6 L 700,13 L 610,6 L 530,12 L 450,5 L 370,13 L 290,5 L 210,12 L 140,5 L 80,11 L 0,6 Z"
+          fill="#140702"
+          opacity="0.9"
+        />
+
+        {/* Bottom torn crumbling edge */}
+        <path
+          d="M 0,1000 L 55,992 L 120,997 L 195,990 L 280,996 L 360,989 L 450,997 L 530,990 L 620,996 L 705,988 L 795,997 L 880,991 L 950,996 L 1000,1000 L 1000,985 L 940,990 L 870,982 L 785,991 L 695,983 L 610,990 L 520,983 L 440,990 L 350,982 L 270,990 L 185,983 L 110,989 L 45,984 L 0,988 Z"
+          fill="#120601"
+          opacity="0.95"
+        />
+
+        {/* Left jagged torn cut */}
+        <path
+          d="M 0,0 L 8,50 L 2,120 L 9,210 L 3,310 L 10,420 L 2,520 L 9,630 L 3,740 L 10,850 L 2,940 L 0,1000 L 12,940 L 6,840 L 14,730 L 6,620 L 13,510 L 6,400 L 14,290 L 7,180 L 13,80 L 0,0 Z"
+          fill="#190902"
+          opacity="0.88"
+        />
+
+        {/* Right jagged torn cut */}
+        <path
+          d="M 1000,0 L 992,60 L 998,140 L 991,240 L 997,350 L 990,460 L 998,570 L 991,680 L 997,790 L 990,890 L 998,960 L 1000,1000 L 986,950 L 993,870 L 986,770 L 993,660 L 985,550 L 993,440 L 986,330 L 993,220 L 986,110 L 993,30 L 1000,0 Z"
+          fill="#190902"
+          opacity="0.88"
+        />
+
+        {/* Scorched burned holes and aged paper singe marks (Image 4 details) */}
+        {/* Top left burn notch */}
+        <ellipse cx="28" cy="22" rx="14" ry="9" fill="#0d0401" opacity="0.85" />
+        <ellipse cx="28" cy="22" rx="20" ry="14" fill="none" stroke="#5a270b" strokeWidth="3" opacity="0.6" />
+        
+        {/* Bottom right burn notch */}
+        <ellipse cx="972" cy="975" rx="16" ry="11" fill="#0d0401" opacity="0.85" />
+        <ellipse cx="972" cy="975" rx="22" ry="16" fill="none" stroke="#5a270b" strokeWidth="3" opacity="0.6" />
+
+        {/* Top right singe mark */}
+        <ellipse cx="965" cy="35" rx="10" ry="6" fill="#170802" opacity="0.75" />
+        
+        {/* Mid left tear notch */}
+        <path d="M 0,480 Q 22,488 12,498 Q 0,505 0,505 Z" fill="#0f0501" opacity="0.9" />
+
+        {/* Mid right tear notch */}
+        <path d="M 1000,320 Q 980,326 988,338 Q 1000,344 1000,344 Z" fill="#0f0501" opacity="0.9" />
+      </svg>
+    </div>
+  );
+}
+
 /* Tall Vintage Illustrated Morocco Map (Matching Image 1 outline + Image 2 Alberta style + Image 3 trail) */
 function MoroccoMap() {
   return (
@@ -350,6 +429,11 @@ export default function PageCycling({ onSwitchTab, onOpenContact }) {
     { from: 'card-sticky', to: 'card-envelope' },
     { from: 'card-envelope', to: 'card-takerkoust' },
     { from: 'map-takerkoust', to: 'card-takerkoust' },
+
+    // Central Reconnaissance Rig Artifact
+    { from: 'map-toubkal', to: 'card-rig' },
+    { from: 'card-rig', to: 'card-envelope' },
+    { from: 'card-rig', to: 'card-tag' },
   ];
 
   const polaroids = [
@@ -405,12 +489,13 @@ export default function PageCycling({ onSwitchTab, onOpenContact }) {
       </div>
 
       {/* ======================================================== */}
-      {/* THE CORKBOARD COLLAGE (Tightly packed, zero empty voids) */}
+      {/* THE ANCIENT TORN DOCUMENT (Image 4 antique aged parchment) */}
       {/* ======================================================== */}
       <div
         ref={corkboardRef}
-        className="corkboard-surface rounded-2xl p-3 sm:p-5 lg:p-6 text-[#fffdf8] relative overflow-hidden shadow-2xl border-4 border-[#3d2716]"
+        className="ancient-parchment-doc rounded-xl p-3 sm:p-5 lg:p-6 text-[#2b1c11] relative overflow-hidden shadow-2xl border-2 border-[#4d260f]"
       >
+        <TornPaperBorderOverlay />
         
         {/* ======================================================== */}
         {/* SVG INVESTIGATION STRINGS CONNECTING CARDS & MAP (Image 4)*/}
@@ -576,53 +661,106 @@ export default function PageCycling({ onSwitchTab, onOpenContact }) {
               <MoroccoMap />
             </div>
 
-            {/* Huge Poster Typography Block (Tightly below map, zero gap!) */}
-            <div className="text-center space-y-1.5 pt-1">
-              
-              <div className="font-poster text-4xl sm:text-5xl lg:text-6xl font-black uppercase text-[#fffdf8] tracking-wider leading-[0.9] drop-shadow-[0_4px_8px_rgba(0,0,0,0.9)]">
-                MOROCCO<br />
-                EXPEDITION<br />
-                FILES
+            {/* Field Reconnaissance & Expedition Rig Dossier (Replaces old poster text & police tape) */}
+            <div className="relative group pt-1">
+              <div className="bg-[#f4ebd0] p-3.5 sm:p-4 rounded-md shadow-2xl border-2 border-[#54381e] text-[#241508] relative rotate-[-0.5deg]">
+                {/* Red pushpin inside card top margin */}
+                <RedPushPin pinId="card-rig" className="absolute top-2 left-6 z-30" />
+
+                {/* Header Strip */}
+                <div className="border-b-2 border-[#54381e]/30 pb-2 mb-3 pl-8 sm:pl-10 flex flex-wrap items-center justify-between gap-2">
+                  <div>
+                    <div className="font-poster text-xs sm:text-sm font-black tracking-widest uppercase text-[#1c1209]">
+                      FIELD RECONNAISSANCE & EXPEDITION SPEC
+                    </div>
+                    <div className="font-typewriter text-[9px] sm:text-[10px] text-[#694828] font-bold">
+                      ARCHIVE REF: MA-CYCLING-167KM • HIGH ATLAS CORRIDOR
+                    </div>
+                  </div>
+                  <div className="border-2 border-[#8a1718] text-[#8a1718] font-poster text-[10px] sm:text-[11px] px-2 py-0.5 rounded tracking-wider uppercase rotate-1 font-black bg-[#8a1718]/5">
+                    VERIFIED DISPATCH
+                  </div>
+                </div>
+
+                {/* Two-Column Artifacts: Folded Mini Map (Image 3) + Adventure Bicycle (Image 2) */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 items-stretch">
+                  
+                  {/* Item 1: Folded Mini Trail Map (Image 3) */}
+                  <div className="bg-[#ede1c2] p-2.5 rounded border border-[#6b4728]/40 shadow-sm flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center justify-between border-b border-[#6b4728]/25 pb-1 mb-2">
+                        <span className="font-poster text-[11px] tracking-wider uppercase text-[#1a1107] font-bold">
+                          TOPO TRAIL MAP
+                        </span>
+                        <span className="font-typewriter text-[8.5px] text-[#8a1718] font-bold">
+                          QUADRANT 3
+                        </span>
+                      </div>
+                      
+                      <div className="bg-[#f7eed6] border border-[#a88a5e]/50 rounded p-1 flex items-center justify-center overflow-hidden mb-2 shadow-inner">
+                        <img
+                          src="./trips/vintage_folded_map.png"
+                          alt="Vintage Folded Expedition Trail Map"
+                          className="w-full max-h-36 object-contain filter contrast-110 sepia-[0.3]"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="font-typewriter text-[9.5px] text-[#3d2817] space-y-0.5 leading-tight">
+                      <div><strong className="text-[#1a1107]">ROUTE:</strong> MARRAKECH → HIGH ATLAS</div>
+                      <div><strong className="text-[#1a1107]">TERRAIN:</strong> GRAVEL & MOUNTAIN TRACK</div>
+                      <div><strong className="text-[#1a1107]">BEARING:</strong> 31°12'N • GAIN +3,200M</div>
+                    </div>
+                  </div>
+
+                  {/* Item 2: Vintage Adventure Bicycle Rig (Image 2) */}
+                  <div className="bg-[#ede1c2] p-2.5 rounded border border-[#6b4728]/40 shadow-sm flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center justify-between border-b border-[#6b4728]/25 pb-1 mb-2">
+                        <span className="font-poster text-[11px] tracking-wider uppercase text-[#1a1107] font-bold">
+                          ENDURANCE RIG SPEC
+                        </span>
+                        <span className="font-typewriter text-[8.5px] text-[#8a1718] font-bold">
+                          167 KM STAGE
+                        </span>
+                      </div>
+                      
+                      <div className="bg-[#f7eed6] border border-[#a88a5e]/50 rounded p-1 flex items-center justify-center overflow-hidden mb-2 shadow-inner">
+                        <img
+                          src="./trips/vintage_bicycle_sketch.png"
+                          alt="Vintage Expedition Bicycle Rig Sketch"
+                          className="w-full max-h-36 object-contain filter contrast-110 sepia-[0.3]"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="font-typewriter text-[9.5px] text-[#3d2817] space-y-0.5 leading-tight">
+                      <div><strong className="text-[#1a1107]">SETUP:</strong> HIGH-ALTITUDE TOURING SPEC</div>
+                      <div><strong className="text-[#1a1107]">ENDURANCE:</strong> 167 KM (2 CONSECUTIVE DAYS)</div>
+                      <div><strong className="text-[#1a1107]">SADDLE:</strong> TESTED UNDER EXTREME WINDS</div>
+                    </div>
+                  </div>
+
+                </div>
+
+                {/* Bottom Footer Bar with Quote and Vintage Instagram Dispatch Link */}
+                <div className="mt-3 pt-2.5 border-t border-[#54381e]/30 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+                  <div className="font-handwriting text-sm sm:text-base text-[#3d2412] font-bold">
+                    "SOME ROADS DON'T FADE. THEY TEST YOU."
+                  </div>
+                  <a
+                    href={socials.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-1.5 px-3.5 py-1.5 bg-[#8a1718] hover:bg-[#680f10] text-[#fbf6ea] font-poster text-xs uppercase tracking-wider rounded shadow transition-all hover:scale-105 border border-[#52090a] shrink-0"
+                  >
+                    <Instagram className="w-3.5 h-3.5" />
+                    <span>FIELD ARCHIVE (@WAHMANE.HAMZA)</span>
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
+                </div>
+
               </div>
-
-              <div className="flex items-center justify-center gap-2 text-[11px] font-typewriter text-[#c2b083] font-bold tracking-widest uppercase">
-                <span className="w-6 h-[1px] bg-[#c2b083]" />
-                <span>THAT FEEL</span>
-                <span className="w-6 h-[1px] bg-[#c2b083]" />
-              </div>
-
-              {/* Bold Distressed Red Block Stamp */}
-              <div className="inline-block bg-[#b82728] text-white px-5 py-1.5 font-poster text-2xl sm:text-3xl font-black uppercase tracking-widest shadow-2xl border-2 border-[#fffdf8]/30 rotate-[-1deg]">
-                TOO REAL TO HANDLE
-              </div>
-
-              {/* Bottom Pinned Tape Note (Pin INSIDE tape note!) */}
-              <div className="pt-1 relative inline-block">
-                <span className="inline-block px-4 py-1.5 bg-[#fff8e7] text-[#2b1c11] font-handwriting text-sm sm:text-base font-bold rounded-sm shadow border border-[#cfbe95] rotate-[1deg] relative">
-                  <RedPushPin pinId="card-tape" className="absolute top-1 left-2" />
-                  "SOME ROADS DON'T FADE. THEY TEST YOU."
-                </span>
-              </div>
-
-            </div>
-
-            {/* Yellow Police Caution Tape across the center bottom */}
-            <div className="caution-tape py-2 px-3 text-center font-poster tracking-widest text-xs sm:text-sm font-black text-black select-none shadow-xl transform -rotate-1">
-              • POLICE LINE DO NOT CROSS • ATHLETE IN THE SADDLE • 1337 EXPEDITION LOG • DO NOT CROSS •
-            </div>
-
-            {/* Central Instagram Button */}
-            <div className="text-center pt-1">
-              <a
-                href={socials.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-2.5 bg-[#b82728] hover:bg-[#8a1718] text-[#fffdf8] font-poster text-base uppercase tracking-widest rounded-lg shadow-xl transition-all border border-[#fffdf8]/30 hover:scale-105"
-              >
-                <Instagram className="w-4 h-4" />
-                <span>OPEN INSTAGRAM DISPATCH (@WAHMANE.HAMZA)</span>
-                <ExternalLink className="w-3.5 h-3.5" />
-              </a>
             </div>
 
           </div>
