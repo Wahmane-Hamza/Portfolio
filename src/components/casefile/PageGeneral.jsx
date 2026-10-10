@@ -2,6 +2,16 @@ import React from 'react';
 import { portfolioData } from '../../data/portfolioData';
 import { MapPin, Mail, ExternalLink, ShieldCheck, Award } from 'lucide-react';
 
+/* Realistic Masking Tape Strip (matching User Image 4) */
+function MaskingTapePiece({ className = "", angle = "-15deg" }) {
+  return (
+    <div
+      className={`absolute pointer-events-none z-20 h-4 sm:h-5 w-14 sm:w-16 masking-tape-strip select-none ${className}`}
+      style={{ transform: `rotate(${angle})` }}
+    />
+  );
+}
+
 export default function PageGeneral({ onSwitchTab, onOpenContact }) {
   const { personal, socials } = portfolioData;
 
@@ -146,26 +156,37 @@ export default function PageGeneral({ onSwitchTab, onOpenContact }) {
           </div>
         </div>
 
-        {/* Buttons to navigate to Page 2 or Page 3 */}
-        <div className="flex flex-wrap items-center gap-2">
-          <button
-            onClick={() => onSwitchTab('projects')}
-            className="px-4 py-2 bg-[#2b1c11] text-[#faf2db] hover:bg-[#8a1718] font-typewriter text-xs font-bold uppercase tracking-wider rounded transition-colors shadow-sm"
-          >
-            Inspect Projects (Page 2) ➔
-          </button>
-          <button
-            onClick={() => onSwitchTab('cycling')}
-            className="px-4 py-2 bg-[#eadbb5] hover:bg-[#dec796] text-[#2b1c11] border border-[#2b1c11] font-typewriter text-xs font-bold uppercase tracking-wider rounded transition-colors"
-          >
-            Cycling Expeditions (Page 3) ➔
-          </button>
-          <button
-            onClick={onOpenContact}
-            className="px-3 py-2 bg-[#8a1718] text-[#fffdf8] font-typewriter text-xs font-bold uppercase tracking-wider rounded hover:bg-[#a3221a] transition-colors"
-          >
-            Send Dispatch ✉
-          </button>
+        {/* Buttons to navigate to Page 2 or Page 3 (Torn Grid Paper with Masking Tape - Image 4) */}
+        <div className="flex flex-wrap items-center gap-3 font-typewriter">
+          <div className="relative group filter drop-shadow-sm">
+            <MaskingTapePiece className="-top-2 left-2" angle="-12deg" />
+            <button
+              onClick={() => onSwitchTab('projects')}
+              className="torn-grid-paper torn-paper-slip px-4 py-2 text-[#1c1208] hover:text-[#8a1718] border border-[#a89063]/60 text-xs font-bold uppercase tracking-wider transition-all hover:-translate-y-0.5"
+            >
+              Inspect Projects (Page 2) ➔
+            </button>
+          </div>
+
+          <div className="relative group filter drop-shadow-sm">
+            <MaskingTapePiece className="-top-2 right-2" angle="14deg" />
+            <button
+              onClick={() => onSwitchTab('cycling')}
+              className="torn-grid-paper torn-paper-slip px-4 py-2 text-[#1c1208] hover:text-[#8a1718] border border-[#a89063]/60 text-xs font-bold uppercase tracking-wider transition-all hover:-translate-y-0.5"
+            >
+              Cycling Expeditions (Page 3) ➔
+            </button>
+          </div>
+
+          <div className="relative group filter drop-shadow-sm">
+            <MaskingTapePiece className="-top-2 right-1" angle="-16deg" />
+            <button
+              onClick={onOpenContact}
+              className="torn-grid-paper torn-paper-slip px-4 py-2 text-[#8a1718] hover:text-[#52090a] border-2 border-[#8a1718]/70 text-xs font-bold uppercase tracking-wider transition-all hover:-translate-y-0.5"
+            >
+              Send Dispatch ✉
+            </button>
+          </div>
         </div>
 
       </div>

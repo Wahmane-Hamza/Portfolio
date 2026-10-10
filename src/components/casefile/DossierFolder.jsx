@@ -30,14 +30,14 @@ export default function DossierFolder() {
         </div>
 
         {/* Quick Social Badges */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2.5">
           <a
             href={socials.instagram}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 px-3 py-1 rounded bg-[#2b1c11] hover:bg-[#8a1718] text-[#f4e9cb] hover:text-white border border-[#5a4430] transition-colors"
+            className="flex items-center gap-1.5 px-2.5 py-1 rounded-sm bg-[#faf4e4] hover:bg-[#ebdcb5] text-[#24170a] hover:text-[#8a1718] border border-[#a89063]/60 text-xs font-bold transition-all shadow-sm"
           >
-            <Instagram className="w-3.5 h-3.5" />
+            <Instagram className="w-3.5 h-3.5 text-[#8a1718]" />
             <span>@wahmane.hamza</span>
           </a>
 
@@ -45,25 +45,25 @@ export default function DossierFolder() {
             href={socials.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="p-1 text-[#c2b083] hover:text-[#fffdf8] transition-colors"
-            title="GitHub"
+            className="p-1.5 rounded-sm bg-[#faf4e4] hover:bg-[#ebdcb5] text-[#24170a] hover:text-[#8a1718] border border-[#a89063]/60 transition-all shadow-sm"
+            title="GitHub Profile"
           >
-            <Github className="w-4 h-4" />
+            <Github className="w-3.5 h-3.5" />
           </a>
 
           <a
             href={socials.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="p-1 text-[#c2b083] hover:text-[#fffdf8] transition-colors"
-            title="LinkedIn"
+            className="p-1.5 rounded-sm bg-[#faf4e4] hover:bg-[#ebdcb5] text-[#24170a] hover:text-[#0a66c2] border border-[#a89063]/60 transition-all shadow-sm"
+            title="LinkedIn Profile"
           >
-            <Linkedin className="w-4 h-4" />
+            <Linkedin className="w-3.5 h-3.5" />
           </a>
 
           <button
             onClick={() => setIsContactOpen(true)}
-            className="px-2.5 py-1 bg-[#8a1718] hover:bg-[#a3221a] text-white rounded text-xs font-bold uppercase transition-colors"
+            className="px-2.5 py-1 bg-[#faf4e4] hover:bg-[#8a1718] hover:text-white text-[#8a1718] border-2 border-[#8a1718]/70 rounded-sm text-xs font-black uppercase transition-all shadow-sm"
           >
             Dispatch ✉
           </button>

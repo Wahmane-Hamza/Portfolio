@@ -101,6 +101,16 @@ function TornPaperBorderOverlay() {
   );
 }
 
+/* Realistic Masking Tape Strip (matching User Image 4) */
+function MaskingTapePiece({ className = "", angle = "-15deg" }) {
+  return (
+    <div
+      className={`absolute pointer-events-none z-20 h-4 sm:h-5 w-14 sm:w-16 masking-tape-strip select-none ${className}`}
+      style={{ transform: `rotate(${angle})` }}
+    />
+  );
+}
+
 /* Tall Vintage Illustrated Morocco Map (Matching Image 1 outline + Image 2 Alberta style + Image 3 trail) */
 function MoroccoMap() {
   return (
@@ -748,16 +758,19 @@ export default function PageCycling({ onSwitchTab, onOpenContact }) {
                   <div className="font-handwriting text-sm sm:text-base text-[#3d2412] font-bold">
                     "SOME ROADS DON'T FADE. THEY TEST YOU."
                   </div>
-                  <a
-                    href={socials.instagram}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-1.5 px-3.5 py-1.5 bg-[#8a1718] hover:bg-[#680f10] text-[#fbf6ea] font-poster text-xs uppercase tracking-wider rounded shadow transition-all hover:scale-105 border border-[#52090a] shrink-0"
-                  >
-                    <Instagram className="w-3.5 h-3.5" />
-                    <span>FIELD ARCHIVE (@WAHMANE.HAMZA)</span>
-                    <ExternalLink className="w-3 h-3" />
-                  </a>
+                  <div className="relative group filter drop-shadow-sm inline-block shrink-0">
+                    <MaskingTapePiece className="-top-2 -right-1" angle="15deg" />
+                    <a
+                      href={socials.instagram}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="torn-grid-paper torn-paper-slip px-3.5 py-1.5 border-2 border-[#8a1718]/70 text-[#8a1718] hover:text-[#52090a] font-typewriter text-xs font-bold uppercase tracking-wider inline-flex items-center gap-2 transition-all hover:-translate-y-0.5 hover:shadow-md"
+                    >
+                      <Instagram className="w-3.5 h-3.5 text-[#8a1718]" />
+                      <span>FIELD ARCHIVE (@WAHMANE.HAMZA)</span>
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
+                  </div>
                 </div>
 
               </div>
@@ -905,43 +918,56 @@ export default function PageCycling({ onSwitchTab, onOpenContact }) {
             </div>
 
             <div className="pt-3 border-t border-[#2b1c11]/20 flex items-center justify-between">
-              <span className="text-xs text-[#5a4430]">[CLICK TO VIEW ON INSTAGRAM]</span>
-              <a
-                href={socials.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-4 py-2 bg-[#8a1718] hover:bg-[#a3221a] text-white font-bold text-xs uppercase tracking-wider rounded inline-flex items-center gap-1.5"
-              >
-                <Instagram className="w-4 h-4" />
-                <span>Open Instagram</span>
-              </a>
+              <span className="text-xs text-[#5a4430]">[DISPATCH REF: FIELD LOG]</span>
+              <div className="relative group filter drop-shadow-sm">
+                <MaskingTapePiece className="-top-2 -right-1" angle="12deg" />
+                <a
+                  href={socials.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="torn-grid-paper torn-paper-slip px-3.5 py-1.5 border-2 border-[#8a1718] text-[#8a1718] font-bold text-xs uppercase tracking-wider inline-flex items-center gap-1.5 transition-all hover:-translate-y-0.5"
+                >
+                  <Instagram className="w-4 h-4 text-[#8a1718]" />
+                  <span>Open Instagram</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
       )}
 
-      {/* Bottom Navigation Buttons */}
+      {/* Bottom Navigation Buttons (Torn Grid Paper with Masking Tape - Image 4) */}
       <div className="pt-4 border-t-2 border-[#1f1c19] flex flex-col sm:flex-row items-center justify-between gap-4 font-typewriter">
-        <button
-          onClick={() => onSwitchTab('projects')}
-          className="text-xs font-bold text-[#5a4430] hover:text-[#1a140e] uppercase tracking-wider"
-        >
-          ⬅ Back to Projects (Page 2)
-        </button>
+        <div className="relative group filter drop-shadow-sm">
+          <MaskingTapePiece className="-top-2 left-2" angle="-14deg" />
+          <button
+            onClick={() => onSwitchTab('projects')}
+            className="torn-grid-paper torn-paper-slip px-4 py-2 text-xs font-bold text-[#3d2716] hover:text-[#1a1209] uppercase tracking-wider border border-[#a89063]/60 transition-all hover:-translate-y-0.5"
+          >
+            ⬅ Back to Projects (Page 2)
+          </button>
+        </div>
 
-        <div className="flex items-center gap-2">
-          <button
-            onClick={() => onSwitchTab('general')}
-            className="px-4 py-2 bg-[#eadbb5] hover:bg-[#dec796] text-[#2b1c11] border border-[#2b1c11] text-xs font-bold uppercase tracking-wider rounded transition-colors"
-          >
-            Dossier (Page 1)
-          </button>
-          <button
-            onClick={onOpenContact}
-            className="px-4 py-2 bg-[#8a1718] text-[#fffdf8] text-xs font-bold uppercase tracking-wider rounded hover:bg-[#a3221a] transition-colors"
-          >
-            Send Dispatch ✉
-          </button>
+        <div className="flex flex-wrap items-center gap-3">
+          <div className="relative group filter drop-shadow-sm">
+            <MaskingTapePiece className="-top-2 right-2" angle="15deg" />
+            <button
+              onClick={() => onSwitchTab('general')}
+              className="torn-grid-paper torn-paper-slip px-4 py-2 text-xs font-bold text-[#2b1c11] hover:text-[#1a1209] uppercase tracking-wider border border-[#a89063]/60 transition-all hover:-translate-y-0.5"
+            >
+              Dossier (Page 1)
+            </button>
+          </div>
+
+          <div className="relative group filter drop-shadow-sm">
+            <MaskingTapePiece className="-top-2 right-1" angle="-16deg" />
+            <button
+              onClick={onOpenContact}
+              className="torn-grid-paper torn-paper-slip px-4 py-2 text-xs font-bold text-[#8a1718] hover:text-[#52090a] uppercase tracking-wider border-2 border-[#8a1718]/70 transition-all hover:-translate-y-0.5"
+            >
+              Send Dispatch ✉
+            </button>
+          </div>
         </div>
       </div>
 

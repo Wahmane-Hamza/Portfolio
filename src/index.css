@@ -193,3 +193,91 @@
   border: 1.5px solid #a89163;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
+
+/* ======================================================== */
+/* TORN GRID PAPER & MASKING TAPE (Matching User Images 4 & 5) */
+/* ======================================================== */
+
+/* 1. White/Cream Notebook Graph Paper (Image 4 style) */
+.torn-grid-paper {
+  background-color: #faf6ec;
+  background-image: 
+    linear-gradient(rgba(180, 160, 130, 0.26) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(180, 160, 130, 0.26) 1px, transparent 1px);
+  background-size: 14px 14px;
+}
+
+/* 2. Vintage Aged/Yellowed Graph Paper (Image 5 style) */
+.torn-grid-paper-aged {
+  background-color: #f1e4c8;
+  background-image: 
+    radial-gradient(circle at 15% 15%, rgba(130, 85, 30, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 85% 85%, rgba(130, 85, 30, 0.1) 0%, transparent 45%),
+    linear-gradient(rgba(140, 115, 80, 0.32) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(140, 115, 80, 0.32) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 14px 14px, 14px 14px;
+}
+
+/* 3. Ragged Torn Deckled Edges (Image 4 & 5 silhouette) */
+.torn-paper-slip {
+  clip-path: polygon(
+    0% 4px,
+    4% 1px,
+    9% 5px,
+    15% 2px,
+    21% 5px,
+    27% 1px,
+    33% 4px,
+    39% 1px,
+    46% 5px,
+    52% 2px,
+    59% 5px,
+    66% 1px,
+    73% 4px,
+    79% 2px,
+    86% 5px,
+    93% 1px,
+    100% 4px,
+    100% calc(100% - 4px),
+    96% calc(100% - 1px),
+    91% calc(100% - 5px),
+    85% calc(100% - 2px),
+    79% calc(100% - 5px),
+    73% calc(100% - 1px),
+    66% calc(100% - 5px),
+    60% calc(100% - 2px),
+    53% calc(100% - 5px),
+    47% calc(100% - 1px),
+    40% calc(100% - 5px),
+    34% calc(100% - 2px),
+    27% calc(100% - 5px),
+    21% calc(100% - 1px),
+    14% calc(100% - 5px),
+    8% calc(100% - 2px),
+    0% calc(100% - 4px)
+  );
+}
+
+/* 4. Masking Tape Strip (Image 4 tan adhesive tape with jagged cuts) */
+.masking-tape-strip {
+  background: linear-gradient(
+    to bottom,
+    rgba(235, 222, 192, 0.72) 0%,
+    rgba(248, 238, 214, 0.88) 50%,
+    rgba(230, 216, 185, 0.75) 100%
+  );
+  box-shadow: 0 1px 3px rgba(30, 15, 5, 0.22);
+  clip-path: polygon(
+    0% 12%,
+    4% 0%,
+    96% 0%,
+    100% 14%,
+    98% 86%,
+    100% 100%,
+    3% 100%,
+    0% 86%
+  );
+  border-left: 1px dashed rgba(180, 150, 100, 0.35);
+  border-right: 1px dashed rgba(180, 150, 100, 0.35);
+}
+

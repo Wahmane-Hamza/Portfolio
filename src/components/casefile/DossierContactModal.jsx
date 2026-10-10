@@ -160,7 +160,7 @@ export default function DossierContactModal({ isOpen, onClose }) {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full py-3 bg-[#b82728] hover:bg-[#8a1718] text-[#fffdf8] font-bold text-xs uppercase tracking-wider rounded transition-all shadow flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60"
+            className="w-full py-3 bg-[#8a1718] hover:bg-[#680f10] text-[#fbf6ea] border-2 border-[#54090a] font-typewriter font-black text-xs uppercase tracking-widest rounded-sm transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60 hover:scale-[1.01]"
           >
             {isSubmitting ? (
               <>

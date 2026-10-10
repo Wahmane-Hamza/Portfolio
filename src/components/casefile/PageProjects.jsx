@@ -38,11 +38,21 @@ function FingerprintGraphic({ className = "" }) {
   );
 }
 
+/* Realistic Masking Tape Strip (matching User Image 4) */
+function MaskingTapePiece({ className = "", angle = "-15deg" }) {
+  return (
+    <div
+      className={`absolute pointer-events-none z-20 h-4 sm:h-5 w-14 sm:w-16 masking-tape-strip select-none ${className}`}
+      style={{ transform: `rotate(${angle})` }}
+    />
+  );
+}
+
 export default function PageProjects({ onSwitchTab, onOpenContact }) {
   const { socials, projects } = portfolioData;
 
-  // Track which folders are open (minishell open by default)
-  const [openFolders, setOpenFolders] = useState({ minishell: true });
+  // Track which folders are open (all closed by default on initial page load)
+  const [openFolders, setOpenFolders] = useState({});
 
   const toggleFolder = (id) => {
     setOpenFolders(prev => ({
@@ -400,93 +410,146 @@ export default function PageProjects({ onSwitchTab, onOpenContact }) {
 
       {/* ======================================================== */}
       {/* BOTTOM PROFESSIONAL DISPATCHES (GITHUB & LINKEDIN)       */}
+      {/* (User Images 4 & 5: Torn Grid Paper with Masking Tape)  */}
       {/* ======================================================== */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
         
-        {/* 1. GitHub Code Archive Card */}
-        <div className="p-5 sm:p-6 bg-[#23170e] text-[#faf2db] rounded-lg border-2 border-[#8a1718] shadow-md flex flex-col justify-between">
-          <div className="flex items-start gap-3.5 mb-4">
-            <div className="w-12 h-12 rounded-full bg-[#faf2db] flex items-center justify-center text-[#23170e] shrink-0 shadow">
-              <Github className="w-6 h-6" />
-            </div>
+        {/* 1. GitHub Code Archive Memo (Image 4 & 5 Torn Grid Paper with Masking Tape) */}
+        <div className="relative group filter drop-shadow-[0_8px_18px_rgba(25,12,4,0.18)]">
+          {/* Masking tape on top-left and bottom-right corners (like Image 4) */}
+          <MaskingTapePiece className="-top-2.5 left-4" angle="-18deg" />
+          <MaskingTapePiece className="-bottom-2.5 right-6" angle="14deg" />
+
+          <div className="torn-grid-paper-aged torn-paper-slip p-5 sm:p-6 text-[#1c1208] border border-[#a89063]/50 relative transition-transform duration-300 group-hover:-translate-y-1 flex flex-col justify-between h-full">
             <div>
-              <span className="text-[10px] uppercase font-bold text-[#dec796] tracking-widest block">
-                PRIMARY CODE ARCHIVE
-              </span>
-              <h3 className="text-lg sm:text-xl font-bold uppercase text-[#fffdf8]">
-                GITHUB PROFILE & REPOSITORIES
-              </h3>
-              <p className="text-xs text-[#eadbb5] mt-1 leading-relaxed">
-                Access all 25+ public repositories, 42 school projects, commit logs, and systems code.
+              {/* Stamp in upper corner */}
+              <div className="flex items-start justify-between gap-3 mb-3">
+                <div className="flex items-center gap-3">
+                  <div className="w-11 h-11 rounded border-2 border-[#3d2716] bg-[#fbf6ea] flex items-center justify-center text-[#1c1208] shadow-sm shrink-0">
+                    <Github className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <span className="text-[10px] font-typewriter font-bold text-[#8a1718] uppercase tracking-widest block">
+                      FIELD EVIDENCE MEMO // 01
+                    </span>
+                    <h3 className="text-base sm:text-lg font-typewriter font-black uppercase text-[#1a1209]">
+                      GITHUB CODE ARCHIVE
+                    </h3>
+                  </div>
+                </div>
+                <span className="font-typewriter text-[9px] font-bold text-[#8a1718] border border-[#8a1718]/60 px-1.5 py-0.5 uppercase tracking-wider rotate-2 bg-[#8a1718]/5 shrink-0">
+                  VERIFIED 42 REPO
+                </span>
+              </div>
+
+              <p className="font-typewriter text-xs text-[#3a2817] leading-relaxed pt-1">
+                Central systems code repository. Access all 25+ public repos, 42 school C/C++ architecture, AST parser logic, Webserv non-blocking multiplexer, and verified commit log trail.
               </p>
             </div>
-          </div>
 
-          <a
-            href={socials.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full py-2.5 px-4 bg-[#b82728] hover:bg-[#8a1718] text-[#fffdf8] font-bold text-xs uppercase tracking-widest rounded transition-all shadow flex items-center justify-center gap-2"
-          >
-            <span>Open GitHub (@Wahmane-Hamza)</span>
-            <ExternalLink className="w-3.5 h-3.5" />
-          </a>
+            {/* Taped torn paper link button (matching user Image 4) */}
+            <div className="mt-4 pt-3 border-t border-[#8a6e45]/30 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <span className="font-typewriter text-[10px] text-[#63482a] font-bold">
+                ID: @WAHMANE-HAMZA
+              </span>
+              <a
+                href={socials.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative inline-flex items-center justify-center gap-2 px-4 py-2 bg-[#f4ebd0] hover:bg-[#e8dbb5] text-[#8a1718] border-2 border-[#8a1718] font-typewriter text-xs font-black uppercase tracking-wider rounded-sm shadow-sm transition-all hover:scale-105"
+              >
+                <span>OPEN GITHUB ARCHIVE</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+            </div>
+          </div>
         </div>
 
-        {/* 2. LinkedIn Professional Network Card */}
-        <div className="p-5 sm:p-6 bg-[#1a2228] text-[#faf2db] rounded-lg border-2 border-[#0a66c2]/80 shadow-md flex flex-col justify-between">
-          <div className="flex items-start gap-3.5 mb-4">
-            <div className="w-12 h-12 rounded-full bg-[#0a66c2] flex items-center justify-center text-white shrink-0 shadow">
-              <Linkedin className="w-6 h-6" />
-            </div>
+        {/* 2. LinkedIn Professional Dossier Memo (Image 4 & 5 Torn Grid Paper with Masking Tape) */}
+        <div className="relative group filter drop-shadow-[0_8px_18px_rgba(25,12,4,0.18)]">
+          {/* Masking tape on top-right and bottom-left corners (like Image 4) */}
+          <MaskingTapePiece className="-top-2.5 right-6" angle="16deg" />
+          <MaskingTapePiece className="-bottom-2.5 left-4" angle="-14deg" />
+
+          <div className="torn-grid-paper-aged torn-paper-slip p-5 sm:p-6 text-[#1c1208] border border-[#a89063]/50 relative transition-transform duration-300 group-hover:-translate-y-1 flex flex-col justify-between h-full">
             <div>
-              <span className="text-[10px] uppercase font-bold text-[#94c4ec] tracking-widest block">
-                PROFESSIONAL NETWORK
-              </span>
-              <h3 className="text-lg sm:text-xl font-bold uppercase text-[#fffdf8]">
-                LINKEDIN PROFILE & EXPERIENCE
-              </h3>
-              <p className="text-xs text-[#d2e5f5] mt-1 leading-relaxed">
-                Connect for engineering opportunities, professional endorsements, recommendations, and career background.
+              {/* Stamp in upper corner */}
+              <div className="flex items-start justify-between gap-3 mb-3">
+                <div className="flex items-center gap-3">
+                  <div className="w-11 h-11 rounded border-2 border-[#1c3248] bg-[#f0f4fa] flex items-center justify-center text-[#0d3b66] shadow-sm shrink-0">
+                    <Linkedin className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <span className="text-[10px] font-typewriter font-bold text-[#0d3b66] uppercase tracking-widest block">
+                      PERSONNEL DOSSIER // 02
+                    </span>
+                    <h3 className="text-base sm:text-lg font-typewriter font-black uppercase text-[#1a1209]">
+                      LINKEDIN CREDENTIALS
+                    </h3>
+                  </div>
+                </div>
+                <span className="font-typewriter text-[9px] font-bold text-[#0d3b66] border border-[#0d3b66]/60 px-1.5 py-0.5 uppercase tracking-wider -rotate-1 bg-[#0d3b66]/5 shrink-0">
+                  ACTIVE PROFILE
+                </span>
+              </div>
+
+              <p className="font-typewriter text-xs text-[#3a2817] leading-relaxed pt-1">
+                Verified career dossier and professional network. Connect for software engineering roles, technical collaboration, systems architecture inquiries, and verified background details.
               </p>
             </div>
-          </div>
 
-          <a
-            href={socials.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full py-2.5 px-4 bg-[#0a66c2] hover:bg-[#084e96] text-white font-bold text-xs uppercase tracking-widest rounded transition-all shadow flex items-center justify-center gap-2"
-          >
-            <span>Open LinkedIn (Hamza Wahmane)</span>
-            <ExternalLink className="w-3.5 h-3.5" />
-          </a>
+            {/* Taped torn paper link button (matching user Image 4) */}
+            <div className="mt-4 pt-3 border-t border-[#8a6e45]/30 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <span className="font-typewriter text-[10px] text-[#63482a] font-bold">
+                REF: HAMZA WAHMANE
+              </span>
+              <a
+                href={socials.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative inline-flex items-center justify-center gap-2 px-4 py-2 bg-[#edf3fa] hover:bg-[#d8e5f5] text-[#0d3b66] border-2 border-[#0d3b66] font-typewriter text-xs font-black uppercase tracking-wider rounded-sm shadow-sm transition-all hover:scale-105"
+              >
+                <span>OPEN LINKEDIN PROFILE</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+            </div>
+          </div>
         </div>
 
       </div>
 
-      {/* Bottom Footer Navigation */}
-      <div className="pt-6 border-t-2 border-[#1f1c19] flex flex-col sm:flex-row items-center justify-between gap-4">
-        <button
-          onClick={() => onSwitchTab('general')}
-          className="text-xs font-bold text-[#5a4430] hover:text-[#1a140e] uppercase tracking-wider"
-        >
-          ⬅ Back to Dossier (Page 1)
-        </button>
+      {/* Bottom Footer Navigation (Torn Grid Paper Buttons with Masking Tape - Image 4) */}
+      <div className="pt-6 border-t-2 border-[#1f1c19] flex flex-col sm:flex-row items-center justify-between gap-4 font-typewriter">
+        <div className="relative group filter drop-shadow-sm">
+          <MaskingTapePiece className="-top-2 left-2" angle="-12deg" />
+          <button
+            onClick={() => onSwitchTab('general')}
+            className="torn-grid-paper torn-paper-slip px-4 py-2 text-xs font-bold text-[#3a2614] hover:text-[#1a140e] uppercase tracking-wider border border-[#b8a679]/70 transition-all hover:-translate-y-0.5"
+          >
+            ⬅ Back to Dossier (Page 1)
+          </button>
+        </div>
 
-        <div className="flex items-center gap-2">
-          <button
-            onClick={() => onSwitchTab('cycling')}
-            className="px-4 py-2 bg-[#2b1c11] text-[#faf2db] hover:bg-[#8a1718] text-xs font-bold uppercase tracking-wider rounded transition-colors shadow-sm"
-          >
-            View Cycling Expeditions (Page 3) ➔
-          </button>
-          <button
-            onClick={onOpenContact}
-            className="px-3 py-2 bg-[#8a1718] text-[#fffdf8] text-xs font-bold uppercase tracking-wider rounded hover:bg-[#a3221a] transition-colors"
-          >
-            Contact ✉
-          </button>
+        <div className="flex flex-wrap items-center gap-3">
+          <div className="relative group filter drop-shadow-sm">
+            <MaskingTapePiece className="-top-2 right-2" angle="14deg" />
+            <button
+              onClick={() => onSwitchTab('cycling')}
+              className="torn-grid-paper torn-paper-slip px-4 py-2 text-[#1c1208] hover:text-[#8a1718] border border-[#b8a679]/70 text-xs font-bold uppercase tracking-wider transition-all hover:-translate-y-0.5"
+            >
+              Cycling Expeditions (Page 3) ➔
+            </button>
+          </div>
+
+          <div className="relative group filter drop-shadow-sm">
+            <MaskingTapePiece className="-top-2 right-1" angle="-15deg" />
+            <button
+              onClick={onOpenContact}
+              className="torn-grid-paper torn-paper-slip px-4 py-2 text-[#8a1718] hover:text-[#52090a] border-2 border-[#8a1718]/70 text-xs font-bold uppercase tracking-wider transition-all hover:-translate-y-0.5"
+            >
+              Contact ✉
+            </button>
+          </div>
         </div>
       </div>
 
