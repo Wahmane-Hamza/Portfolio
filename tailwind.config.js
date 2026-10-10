@@ -29,6 +29,7 @@ export default {
       fontFamily: {
         typewriter: ['Special Elite', 'Courier Prime', 'monospace'],
         handwriting: ['Caveat', 'cursive'],
+        poster: ['Bebas Neue', 'sans-serif'],
         mono: ['Courier Prime', 'monospace'],
         sans: ['Inter', 'system-ui', 'sans-serif'],
       },
