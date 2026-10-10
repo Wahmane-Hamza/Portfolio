@@ -25,7 +25,7 @@ function RedPushPin({ className = "", pinId = null }) {
 /* Tall Vintage Illustrated Morocco Map (Matching Image 1 outline + Image 2 Alberta style + Image 3 trail) */
 function MoroccoMap() {
   return (
-    <div className="relative bg-[#eee5ce] border-4 border-[#2d1f14] rounded shadow-2xl p-2.5 sm:p-3 overflow-hidden select-none">
+    <div className="relative bg-[#eee5ce] border-4 border-[#2d1f14] rounded shadow-2xl p-2 sm:p-2.5 overflow-hidden select-none">
       {/* Map Header Plate (Deep navy banner matching Image 2 ALBERTA header) */}
       <div className="flex items-center justify-between gap-2 border-b-2 border-[#2d1f14] pb-2 mb-2 px-1">
         <div className="bg-[#182329] text-[#f7eed6] px-3 sm:px-4 py-1 text-sm sm:text-base font-poster tracking-[0.22em] font-black uppercase rounded-sm border border-[#ede1c7] whitespace-nowrap shrink-0">
@@ -37,11 +37,10 @@ function MoroccoMap() {
         </div>
       </div>
 
-      {/* Vector Map Canvas - Portrait Aspect Ratio (3:4, matching Alberta map in Image 2) */}
-      <div className="relative aspect-[3/4] w-full overflow-hidden rounded bg-[#faf2dc]">
+      {/* Vector Map Canvas - Aspect ratio matches morocco_vintage_outline.png (560 x 585) */}
+      <div className="relative aspect-[560/585] w-full overflow-hidden rounded bg-[#faf2dc] border border-[#2d1f14]/30 shadow-inner">
         
-        {/* Layer 1: Background, Grids, Borders, Waves, Mountains & Labels */}
-        <svg viewBox="0 0 340 450" className="absolute inset-0 w-full h-full z-0">
+        <svg viewBox="0 0 560 585" className="absolute inset-0 w-full h-full z-0">
           <defs>
             <radialGradient id="parchmentWash" cx="50%" cy="45%" r="65%">
               <stop offset="0%" stopColor="#faf3de" />
@@ -59,162 +58,195 @@ function MoroccoMap() {
           </defs>
 
           {/* Background Wash */}
-          <rect width="340" height="450" fill="url(#parchmentWash)" />
+          <rect width="560" height="585" fill="url(#parchmentWash)" />
 
           {/* Double Frame Borders */}
-          <rect x="6" y="6" width="328" height="438" stroke="#332415" strokeWidth="1.5" fill="none" />
-          <rect x="10" y="10" width="320" height="430" stroke="#705537" strokeWidth="0.6" strokeDasharray="4 2" fill="none" />
+          <rect x="6" y="6" width="548" height="573" stroke="#332415" strokeWidth="1.5" fill="none" />
+          <rect x="10" y="10" width="540" height="565" stroke="#705537" strokeWidth="0.6" strokeDasharray="5 3" fill="none" />
 
           {/* Atlantic Ocean Wave Area */}
-          <rect x="10" y="10" width="100" height="430" fill="url(#oceanWaves)" />
-          <text x="28" y="180" fill="#917c56" fontSize="10" fontFamily="'Special Elite', monospace" letterSpacing="4" transform="rotate(-90 28 180)">
+          <path d="M 10 10 L 375 10 L 335 105 L 250 215 L 220 300 L 10 575 Z" fill="url(#oceanWaves)" />
+          
+          {/* Compass Rose (Positioned in Atlantic Ocean, clear of land) */}
+          <g transform="translate(90, 85)">
+            <circle cx="0" cy="0" r="22" fill="#fcf6e6" stroke="#4a3622" strokeWidth="1" opacity="0.95" />
+            <polygon points="0,-18 4,-4 18,0 4,4 0,18 -4,4 -18,0 -4,-4" fill="#543c25" />
+            <polygon points="0,-18 0,0 -4,-4" fill="#9c754b" />
+            <polygon points="0,18 0,0 4,4" fill="#9c754b" />
+            <polygon points="18,0 0,0 4,-4" fill="#9c754b" />
+            <polygon points="-18,0 0,0 -4,4" fill="#9c754b" />
+            <text x="-4" y="-21" fill="#2b1a0d" fontSize="9" fontWeight="bold" fontFamily="'Special Elite', monospace">N</text>
+            <text x="-3.5" y="28" fill="#2b1a0d" fontSize="8" fontWeight="bold" fontFamily="'Special Elite', monospace">S</text>
+            <text x="21" y="3" fill="#2b1a0d" fontSize="8" fontWeight="bold" fontFamily="'Special Elite', monospace">E</text>
+            <text x="-27" y="3" fill="#2b1a0d" fontSize="8" fontWeight="bold" fontFamily="'Special Elite', monospace">W</text>
+          </g>
+
+          {/* Sea Labels */}
+          <text x="120" y="240" fill="#917c56" fontSize="11" fontFamily="'Special Elite', monospace" letterSpacing="4" transform="rotate(-55 120 240)">
             ATLANTIC OCEAN
           </text>
-          <text x="180" y="24" fill="#917c56" fontSize="9" fontFamily="'Special Elite', monospace" letterSpacing="3">
+          <text x="440" y="25" fill="#917c56" fontSize="9" fontFamily="'Special Elite', monospace" letterSpacing="2.5">
             MEDITERRANEAN SEA
           </text>
 
           {/* Regional Contour Labels */}
-          <text x="185" y="68" fill="#544333" fontSize="8.5" fontWeight="bold" fontFamily="'Special Elite', monospace" letterSpacing="1.5">
-            NORTHERN RIF
+          <text x="435" y="60" fill="#544333" fontSize="8" fontWeight="bold" fontFamily="'Special Elite', monospace" letterSpacing="1">
+            RIF MOUNTAINS
           </text>
-          <text x="58" y="115" fill="#544333" fontSize="8" fontWeight="bold" fontFamily="'Special Elite', monospace" letterSpacing="1">
-            ATLANTIC PLAINS
-          </text>
-          <text x="175" y="170" fill="#544333" fontSize="8.5" fontWeight="bold" fontFamily="'Special Elite', monospace" letterSpacing="1.5">
-            HIGH ATLAS REGION
-          </text>
-          <text x="145" y="380" fill="#544333" fontSize="8.5" fontWeight="bold" fontFamily="'Special Elite', monospace" letterSpacing="1.5">
-            SOUTHERN EXPEDITIONS
+          <text x="100" y="440" fill="#544333" fontSize="8.5" fontWeight="bold" fontFamily="'Special Elite', monospace" letterSpacing="1.5">
+            SOUTHERN PROVINCES
           </text>
 
-          {/* Mountain chain (High Atlas Peaks in style of Alberta Rockies) */}
+          {/* Layer 2: The Exact Morocco Regional Outline from User (Image 1 in Vintage Sepia Ink) */}
+          <image
+            href="./trips/morocco_vintage_outline.png"
+            x="0"
+            y="0"
+            width="560"
+            height="585"
+            preserveAspectRatio="none"
+            opacity="0.92"
+          />
+
+          {/* High Atlas Mountains Chain (Positioned precisely along the real High Atlas ridge) */}
           <g stroke="#1d2721" strokeWidth="0.8">
-            <polygon points="140,225 165,185 190,225" fill="#2d3d34" />
-            <polygon points="165,185 170,185 190,225 165,225" fill="#1b2620" />
-            <polygon points="158,198 165,185 172,198" fill="#ffffff" stroke="none" />
+            {/* Peak 1 (Toubkal Massive) */}
+            <polygon points="305,200 318,180 331,200" fill="#2d3d34" />
+            <polygon points="318,180 322,180 331,200 318,200" fill="#1b2620" />
+            <polygon points="313,188 318,180 323,188" fill="#ffffff" stroke="none" />
 
-            <polygon points="172,215 195,178 218,215" fill="#394d42" />
-            <polygon points="195,178 199,178 218,215 195,215" fill="#222e27" />
-            <polygon points="188,190 195,178 202,190" fill="#ffffff" stroke="none" />
+            {/* Peak 2 (Oukaimeden) */}
+            <polygon points="320,195 329,177 338,195" fill="#394d42" />
+            <polygon points="325,184 329,177 333,184" fill="#ffffff" stroke="none" />
 
-            <polygon points="200,210 220,172 240,210" fill="#2d3d34" />
-            <polygon points="214,184 220,172 226,184" fill="#ffffff" stroke="none" />
+            {/* Peak 3 (Tichka Pass / Central High Atlas) */}
+            <polygon points="335,198 350,178 365,198" fill="#2d3d34" />
+            <polygon points="350,178 354,178 365,198 350,198" fill="#1b2620" />
+            <polygon points="345,185 350,178 355,185" fill="#ffffff" stroke="none" />
 
-            <polygon points="222,220 242,185 262,220" fill="#394d42" />
-            <polygon points="236,197 242,185 248,197" fill="#ffffff" stroke="none" />
+            {/* Peak 4 (Eastern Atlas / Mgoun) */}
+            <polygon points="362,192 376,172 390,192" fill="#394d42" />
+            <polygon points="372,180 376,172 380,180" fill="#ffffff" stroke="none" />
+
+            {/* Peak 5 (Middle Atlas Ridge) */}
+            <polygon points="385,160 400,140 415,160" fill="#2d3d34" />
+            <polygon points="395,148 400,140 405,148" fill="#ffffff" stroke="none" />
           </g>
 
-          <text x="170" y="165" fill="#223028" fontSize="8.5" fontWeight="bold" fontFamily="'Special Elite', monospace" fontStyle="italic" letterSpacing="1">
+          <text x="320" y="166" fill="#223028" fontSize="8" fontWeight="bold" fontFamily="'Special Elite', monospace" fontStyle="italic" letterSpacing="0.8">
             HIGH ATLAS MOUNTAINS
           </text>
 
-          {/* Waypoints */}
-          <circle cx="178" cy="48" r="3" fill="#1f1a14" stroke="#ffffff" strokeWidth="1" />
-          <text x="184" y="51" fill="#1f1a14" fontSize="8" fontWeight="bold" fontFamily="'Special Elite', monospace">Tangier</text>
+          {/* Geographically Accurate City Waypoints */}
+          {/* 1. Tangier (Strait of Gibraltar tip) */}
+          <circle cx="400" cy="18" r="3.2" fill="#1f1a14" stroke="#ffffff" strokeWidth="1" />
+          <text x="408" y="21" fill="#1f1a14" fontSize="8.5" fontWeight="bold" fontFamily="'Special Elite', monospace">
+            Tangier
+          </text>
 
-          <circle cx="152" cy="115" r="3" fill="#1f1a14" stroke="#ffffff" strokeWidth="1" />
-          <text x="158" y="118" fill="#1f1a14" fontSize="8" fontWeight="bold" fontFamily="'Special Elite', monospace">Rabat</text>
+          {/* 2. Rabat (Capital on Atlantic Coast) */}
+          <circle cx="360" cy="80" r="3.2" fill="#1f1a14" stroke="#ffffff" strokeWidth="1" />
+          <text x="368" y="83" fill="#1f1a14" fontSize="8.5" fontWeight="bold" fontFamily="'Special Elite', monospace">
+            Rabat
+          </text>
 
-          <circle cx="136" cy="138" r="3" fill="#1f1a14" stroke="#ffffff" strokeWidth="1" />
-          <text x="78" y="141" fill="#1f1a14" fontSize="8" fontWeight="bold" fontFamily="'Special Elite', monospace">Casablanca</text>
+          {/* 3. Casablanca (Coast south of Rabat) */}
+          <circle cx="342" cy="98" r="3.2" fill="#1f1a14" stroke="#ffffff" strokeWidth="1" />
+          <text x="272" y="101" fill="#1f1a14" fontSize="8.5" fontWeight="bold" fontFamily="'Special Elite', monospace">
+            Casablanca
+          </text>
 
-          <circle cx="158" cy="200" r="4.5" fill="#1f1a14" stroke="#ffffff" strokeWidth="1.5" />
-          <text x="86" y="203" fill="#1f1a14" fontSize="8.5" fontWeight="bold" fontFamily="'Special Elite', monospace">
+          {/* 4. Fès (Inland north) */}
+          <circle cx="415" cy="82" r="3" fill="#1f1a14" stroke="#ffffff" strokeWidth="1" />
+          <text x="423" y="85" fill="#1f1a14" fontSize="8" fontWeight="bold" fontFamily="'Special Elite', monospace">
+            Fès
+          </text>
+
+          {/* 5. Marrakech (Inland Haouz Plain, HQ) */}
+          <circle cx="315" cy="170" r="4.5" fill="#1f1a14" stroke="#ffffff" strokeWidth="1.5" />
+          <text x="220" y="173" fill="#1f1a14" fontSize="9" fontWeight="bold" fontFamily="'Special Elite', monospace">
             ★ Marrakech (HQ)
           </text>
 
-          <circle cx="112" cy="305" r="3" fill="#1f1a14" stroke="#ffffff" strokeWidth="1" />
-          <text x="75" y="308" fill="#1f1a14" fontSize="8" fontWeight="bold" fontFamily="'Special Elite', monospace">Agadir</text>
+          {/* 6. Ouarzazate (Draa Valley, across Atlas, firmly inside Morocco) */}
+          <circle cx="375" cy="195" r="3.2" fill="#1f1a14" stroke="#ffffff" strokeWidth="1" />
+          <text x="383" y="198" fill="#1f1a14" fontSize="8.5" fontWeight="bold" fontFamily="'Special Elite', monospace">
+            Ouarzazate
+          </text>
 
-          <circle cx="230" cy="285" r="3" fill="#1f1a14" stroke="#ffffff" strokeWidth="1" />
-          <text x="236" y="288" fill="#1f1a14" fontSize="8" fontWeight="bold" fontFamily="'Special Elite', monospace">Ouarzazate</text>
+          {/* 7. Agadir (Souss Coast) */}
+          <circle cx="252" cy="210" r="3.2" fill="#1f1a14" stroke="#ffffff" strokeWidth="1" />
+          <text x="208" y="213" fill="#1f1a14" fontSize="8.5" fontWeight="bold" fontFamily="'Special Elite', monospace">
+            Agadir
+          </text>
 
-          {/* Compass Rose */}
-          <g transform="translate(295, 45)">
-            <circle cx="0" cy="0" r="18" fill="#fcf6e6" stroke="#4a3622" strokeWidth="0.8" opacity="0.9" />
-            <polygon points="0,-14 3,-3 14,0 3,3 0,14 -3,3 -14,0 -3,-3" fill="#543c25" />
-            <polygon points="0,-14 0,0 -3,-3" fill="#9c754b" />
-            <polygon points="0,14 0,0 3,3" fill="#9c754b" />
-            <polygon points="14,0 0,0 3,-3" fill="#9c754b" />
-            <polygon points="-14,0 0,0 -3,3" fill="#9c754b" />
-            <text x="-3" y="-16" fill="#2b1a0d" fontSize="7.5" fontWeight="bold" fontFamily="'Special Elite', monospace">N</text>
-            <text x="-3" y="22" fill="#2b1a0d" fontSize="6.5" fontWeight="bold" fontFamily="'Special Elite', monospace">S</text>
-            <text x="16" y="2.5" fill="#2b1a0d" fontSize="6.5" fontWeight="bold" fontFamily="'Special Elite', monospace">E</text>
-            <text x="-21" y="2.5" fill="#2b1a0d" fontSize="6.5" fontWeight="bold" fontFamily="'Special Elite', monospace">W</text>
-          </g>
-        </svg>
-
-        {/* Layer 2: The Exact Morocco Regional Outline from User (Image 1 in Vintage Sepia Ink) */}
-        <div className="absolute inset-0 pointer-events-none z-10 flex items-center justify-center p-3">
-          <img
-            src="./trips/morocco_vintage_outline.png"
-            alt="Official Morocco Regions Map"
-            className="w-full h-full object-contain filter contrast-125 opacity-90"
-          />
-        </div>
-
-        {/* Layer 3: THE WINDING EXPEDITION RED STRING (Image 3 style) ON TOP OF THE MAP */}
-        <svg viewBox="0 0 340 450" className="absolute inset-0 w-full h-full pointer-events-none z-20" filter="url(#stringShadow)">
-          {/* Smooth serpentine curve connecting the 4 key stops like Image 3! */}
+          {/* Layer 3: THE WINDING EXPEDITION RED STRING (Image 3 style) ON TOP OF THE MAP */}
+          {/* Smooth serpentine curve connecting the 4 key stops following the real geography */}
           <path
-            d="M 178 48 
-               C 240 60, 275 100, 260 140
-               C 245 180, 140 185, 165 235
-               C 185 275, 155 310, 125 345"
+            d="M 400 18 
+               C 385 45, 365 60, 360 80
+               C 355 90, 345 92, 342 98
+               C 330 125, 320 145, 315 170
+               C 335 178, 350 185, 355 192
+               C 345 200, 325 202, 318 190
+               C 310 182, 305 180, 302 178"
             fill="none"
             stroke="#b81b1b"
             strokeWidth="3.2"
             strokeLinecap="round"
+            filter="url(#stringShadow)"
           />
           <path
-            d="M 178 48 
-               C 240 60, 275 100, 260 140
-               C 245 180, 140 185, 165 235
-               C 185 275, 155 310, 125 345"
+            d="M 400 18 
+               C 385 45, 365 60, 360 80
+               C 355 90, 345 92, 342 98
+               C 330 125, 320 145, 315 170
+               C 335 178, 350 185, 355 192
+               C 345 200, 325 202, 318 190
+               C 310 182, 305 180, 302 178"
             fill="none"
             stroke="#ff7a7a"
             strokeWidth="0.9"
             strokeDasharray="4 3"
           />
 
-          {/* 3D RED PUSHPINS AT THE BEGINNING, TURNS, AND END OF THE LINE (Image 3 X marks) */}
+          {/* 3D RED PUSHPINS AT THE BEGINNING, TURNS, AND END OF THE EXPEDITION TRAIL */}
           {/* Stop 1: Tangier (Top-North) */}
-          <g transform="translate(178, 48)">
+          <g transform="translate(400, 18)">
             <circle cx="1" cy="2" r="6" fill="#000000" opacity="0.45" />
             <circle cx="0" cy="0" r="5.5" fill="#c91818" stroke="#ffe5e5" strokeWidth="1" />
             <circle cx="-1.5" cy="-1.5" r="1.8" fill="#ffffff" />
           </g>
 
-          {/* Stop 2: Middle Atlas / Tichka Pass (Right Turn) */}
-          <g transform="translate(260, 140)">
+          {/* Stop 2: High Atlas Tour / Tichka Pass to Ouarzazate (167km Tour Pass) */}
+          <g transform="translate(355, 192)">
             <circle cx="1" cy="2" r="6" fill="#000000" opacity="0.45" />
             <circle cx="0" cy="0" r="5.5" fill="#c91818" stroke="#ffe5e5" strokeWidth="1" />
             <circle cx="-1.5" cy="-1.5" r="1.8" fill="#ffffff" />
-            <rect x="-95" y="-7" width="90" height="14" fill="#fffdf8" stroke="#2b1c11" strokeWidth="0.8" rx="2" />
-            <text x="-91" y="3" fill="#8a1718" fontSize="7" fontWeight="bold" fontFamily="'Special Elite', monospace">
+            <rect x="8" y="-6" width="88" height="13" fill="#fffdf8" stroke="#2b1c11" strokeWidth="0.8" rx="2" />
+            <text x="12" y="3.5" fill="#8a1718" fontSize="7" fontWeight="bold" fontFamily="'Special Elite', monospace">
               167KM TOUR PASS
             </text>
           </g>
 
-          {/* Stop 3: Marrakech Base & Toubkal (4,167m) (Left Turn) */}
-          <g transform="translate(165, 235)">
+          {/* Stop 3: Toubkal Summit (4,167m) & Oukaimeden */}
+          <g transform="translate(318, 190)">
             <circle cx="1" cy="2" r="6.5" fill="#000000" opacity="0.5" />
             <circle cx="0" cy="0" r="6" fill="#c91818" stroke="#ffe5e5" strokeWidth="1.2" />
             <circle cx="-1.8" cy="-1.8" r="2" fill="#ffffff" />
-            <rect x="9" y="-7" width="105" height="14" fill="#fffdf8" stroke="#2b1c11" strokeWidth="0.8" rx="2" />
-            <text x="13" y="3" fill="#8a1718" fontSize="7.5" fontWeight="bold" fontFamily="'Special Elite', monospace">
+            <rect x="-115" y="6" width="110" height="13" fill="#fffdf8" stroke="#2b1c11" strokeWidth="0.8" rx="2" />
+            <text x="-111" y="15.5" fill="#8a1718" fontSize="7" fontWeight="bold" fontFamily="'Special Elite', monospace">
               TOUBKAL SUMMIT (4,167m)
             </text>
           </g>
 
-          {/* Stop 4: Southern Passes & Lalla Takerkoust (Bottom Stop) */}
-          <g transform="translate(125, 345)">
+          {/* Stop 4: Lalla Takerkoust Lake & Barrage */}
+          <g transform="translate(302, 178)">
             <circle cx="1" cy="2" r="6" fill="#000000" opacity="0.45" />
             <circle cx="0" cy="0" r="5.5" fill="#c91818" stroke="#ffe5e5" strokeWidth="1" />
             <circle cx="-1.5" cy="-1.5" r="1.8" fill="#ffffff" />
-            <rect x="9" y="-7" width="92" height="14" fill="#fffdf8" stroke="#2b1c11" strokeWidth="0.8" rx="2" />
-            <text x="13" y="3" fill="#2b1c11" fontSize="7" fontWeight="bold" fontFamily="'Special Elite', monospace">
+            <rect x="-105" y="-14" width="98" height="13" fill="#fffdf8" stroke="#2b1c11" strokeWidth="0.8" rx="2" />
+            <text x="-101" y="-4.5" fill="#2b1c11" fontSize="6.8" fontWeight="bold" fontFamily="'Special Elite', monospace">
               LALLA TAKERKOUST
             </text>
           </g>
@@ -224,22 +256,22 @@ function MoroccoMap() {
         <div
           data-pin-id="map-tangier"
           className="absolute w-2 h-2 -translate-x-1 -translate-y-1 pointer-events-none"
-          style={{ left: `${(178 / 340) * 100}%`, top: `${(48 / 450) * 100}%` }}
+          style={{ left: `${(400 / 560) * 100}%`, top: `${(18 / 585) * 100}%` }}
         />
         <div
           data-pin-id="map-167km"
           className="absolute w-2 h-2 -translate-x-1 -translate-y-1 pointer-events-none"
-          style={{ left: `${(260 / 340) * 100}%`, top: `${(140 / 450) * 100}%` }}
+          style={{ left: `${(355 / 560) * 100}%`, top: `${(192 / 585) * 100}%` }}
         />
         <div
           data-pin-id="map-toubkal"
           className="absolute w-2 h-2 -translate-x-1 -translate-y-1 pointer-events-none"
-          style={{ left: `${(165 / 340) * 100}%`, top: `${(235 / 450) * 100}%` }}
+          style={{ left: `${(318 / 560) * 100}%`, top: `${(190 / 585) * 100}%` }}
         />
         <div
           data-pin-id="map-takerkoust"
           className="absolute w-2 h-2 -translate-x-1 -translate-y-1 pointer-events-none"
-          style={{ left: `${(125 / 340) * 100}%`, top: `${(345 / 450) * 100}%` }}
+          style={{ left: `${(302 / 560) * 100}%`, top: `${(178 / 585) * 100}%` }}
         />
 
       </div>
