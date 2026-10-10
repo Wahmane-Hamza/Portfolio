@@ -2,13 +2,50 @@ import React from 'react';
 import { portfolioData } from '../../data/portfolioData';
 import { MapPin, Mail, ExternalLink, ShieldCheck, Award } from 'lucide-react';
 
-/* Realistic Masking Tape Strip (matching User Image 4) */
-function MaskingTapePiece({ className = "", angle = "-15deg" }) {
+/* Realistic 3D Metallic Paperclip (matching User Image 3) */
+function MetallicPaperclip({ className = "" }) {
   return (
-    <div
-      className={`absolute pointer-events-none z-20 h-4 sm:h-5 w-14 sm:w-16 masking-tape-strip select-none ${className}`}
-      style={{ transform: `rotate(${angle})` }}
-    />
+    <svg
+      className={`pointer-events-none select-none drop-shadow-[0_2px_3px_rgba(0,0,0,0.45)] ${className}`}
+      viewBox="0 0 28 54"
+      fill="none"
+    >
+      <defs>
+        <linearGradient id="chromeSteelGen" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#f8fafc" />
+          <stop offset="25%" stopColor="#cbd5e1" />
+          <stop offset="50%" stopColor="#64748b" />
+          <stop offset="75%" stopColor="#e2e8f0" />
+          <stop offset="100%" stopColor="#334155" />
+        </linearGradient>
+      </defs>
+      {/* Outer Wire Back Shadow */}
+      <path
+        d="M 9 18 L 9 38 C 9 46 21 46 21 38 L 21 11 C 21 4 14 4 14 11 L 14 36 C 14 40 18 40 18 36 L 18 16"
+        stroke="#1e293b"
+        strokeWidth="3.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        opacity="0.35"
+      />
+      {/* Main Metallic Wire */}
+      <path
+        d="M 9 18 L 9 38 C 9 46 21 46 21 38 L 21 11 C 21 4 14 4 14 11 L 14 36 C 14 40 18 40 18 36 L 18 16"
+        stroke="url(#chromeSteelGen)"
+        strokeWidth="2.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      {/* Specular White Glint */}
+      <path
+        d="M 9.5 20 L 9.5 37 C 9.5 44 20.5 44 20.5 37 L 20.5 12"
+        stroke="#ffffff"
+        strokeWidth="0.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        opacity="0.8"
+      />
+    </svg>
   );
 }
 
@@ -156,33 +193,33 @@ export default function PageGeneral({ onSwitchTab, onOpenContact }) {
           </div>
         </div>
 
-        {/* Buttons to navigate to Page 2 or Page 3 (Torn Grid Paper with Masking Tape - Image 4) */}
+        {/* Buttons to navigate to Page 2 or Page 3 (Torn Grid Paper with Metallic Paperclip - Image 3) */}
         <div className="flex flex-wrap items-center gap-3 font-typewriter">
-          <div className="relative group filter drop-shadow-sm">
-            <MaskingTapePiece className="-top-2 left-2" angle="-12deg" />
+          <div className="relative inline-block group">
+            <MetallicPaperclip className="absolute -top-3 left-2 w-3.5 h-7 z-20" />
             <button
               onClick={() => onSwitchTab('projects')}
-              className="torn-grid-paper torn-paper-slip px-4 py-2 text-[#1c1208] hover:text-[#8a1718] border border-[#a89063]/60 text-xs font-bold uppercase tracking-wider transition-all hover:-translate-y-0.5"
+              className="relative z-10 torn-grid-paper torn-paper-slip pl-6 pr-3.5 py-2 text-[#1c1208] hover:text-[#8a1718] border border-[#a89063]/60 text-xs font-bold uppercase tracking-wider transition-all hover:-translate-y-0.5 hover:shadow-md"
             >
               Inspect Projects (Page 2) ➔
             </button>
           </div>
 
-          <div className="relative group filter drop-shadow-sm">
-            <MaskingTapePiece className="-top-2 right-2" angle="14deg" />
+          <div className="relative inline-block group">
+            <MetallicPaperclip className="absolute -top-3 left-2 w-3.5 h-7 z-20" />
             <button
               onClick={() => onSwitchTab('cycling')}
-              className="torn-grid-paper torn-paper-slip px-4 py-2 text-[#1c1208] hover:text-[#8a1718] border border-[#a89063]/60 text-xs font-bold uppercase tracking-wider transition-all hover:-translate-y-0.5"
+              className="relative z-10 torn-grid-paper torn-paper-slip pl-6 pr-3.5 py-2 text-[#1c1208] hover:text-[#8a1718] border border-[#a89063]/60 text-xs font-bold uppercase tracking-wider transition-all hover:-translate-y-0.5 hover:shadow-md"
             >
               Cycling Expeditions (Page 3) ➔
             </button>
           </div>
 
-          <div className="relative group filter drop-shadow-sm">
-            <MaskingTapePiece className="-top-2 right-1" angle="-16deg" />
+          <div className="relative inline-block group">
+            <MetallicPaperclip className="absolute -top-3 left-2 w-3.5 h-7 z-20" />
             <button
               onClick={onOpenContact}
-              className="torn-grid-paper torn-paper-slip px-4 py-2 text-[#8a1718] hover:text-[#52090a] border-2 border-[#8a1718]/70 text-xs font-bold uppercase tracking-wider transition-all hover:-translate-y-0.5"
+              className="relative z-10 torn-grid-paper torn-paper-slip pl-6 pr-3.5 py-2 text-[#8a1718] hover:text-[#52090a] border-2 border-[#8a1718]/70 text-xs font-bold uppercase tracking-wider transition-all hover:-translate-y-0.5 hover:shadow-md"
             >
               Send Dispatch ✉
             </button>
